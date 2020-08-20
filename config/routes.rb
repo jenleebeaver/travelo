@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new', as: 'signup'
   get '/users', to: 'users#index' 
-  post '/users', to: 'users#create', as: '/welcome'
-  resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  post '/users', to: 'users#create'
+  # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   patch 'users/:id', to: 'users#update', as: 'update'
   post '/delete', to: 'users#destroy', as: 'delete'
 
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
  
 
   get '/login', to: 'session#new', as: 'login'
-  post '/login' => 'session#create'
-  post '/logout' => 'session#destroy'
+  post '/sessions', to: 'sessions#create'
+  # post '/login' => 'session#create'
+  # post '/logout', to: 'session#destroy', as: 'logout'
+  get '/logout', to: 'session#destroy', as: 'logout'
   get '/auth/facebook/callback' => 'facebooksessions#create'
 end

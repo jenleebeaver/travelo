@@ -19,11 +19,10 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new 
-        if (@user = User.create(user_params))
-            session[:user_id] = @user.id
-            @user.save
-            redirect_to '/users'
+        if (user = User.create(user_params))
+            session[:user_id] = user.id
+            user.save
+            redirect_to '/posts/new'
         else
             flash[:error] = "Not a valid input. Please check your values."
             render 'signup'

@@ -6,11 +6,11 @@ class SessionController < ApplicationController
     end
 
     def create
-        if @user = User.find_by(username: params[:user][:username])
+        if @user = User.find_by(:email => params[:email])
             session[:user_id] = @user.id
-            redirect_to 'welcome'
+            redirect_to '/posts/new'
         else
-            render '/signup'
+            redirect_to '/signup', :message => "Couldn't find user.  Please signup.'"
         end
     end
 
