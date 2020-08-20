@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            window.fbAsyncInit = function() {
+            FB.init({
+            appId      : '300438264535610',
+            cookie     : true,
+            xfbml      : true,
+            version    : '8.0'
+            });
+
+            FB.AppEvents.logPageView();   
+            };
+
+            (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <div class="h1-2">
+            TRAVELO
+            <hr>
+        </div>
+
+        <div>
+            <p>To continue, log into travelo.</p>
+        </div>
+
+        <fb:login-button 
+            scope="public_profile,email"
+            onlogin="checkLoginState();">
+        </fb:login-button>
+
+        <div>
+            <a href='/auth/facebook' class="btn-facebook"> CONTINUE WITH FACEBOOK</a>
+        </div>
+
+        <div>
+            <a href='/auth/google' class="btn-facebook btn-google"> CONTINUE WITH GOOGLE</a>
+        </div>
+
+        <p> or </p>
+
+
+        <div class="form">
+            <%= form_for @user do |f| %>
+
+                <div class="form-group">
+                    <%= f.label :email, "What's your email?" %>
+                    <br/>
+                    <%=f.text_field :email, placeholder: "Enter your email.", class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :password, "Create a password" %>
+                    <br/>
+                    <%=f.text_field :password, placeholder: "Create a password.", class: "form-control" %>
+                </div>
+
+                <div class="actions">
+                    <br/>
+                    <%= f.submit "Login", class: "btn btn-primary" %>
+                </div>
+
+            <%end%>
+        </div>
+
+        <p> Don't have an account? </p>
+
+        <div class="form">
+            <%= form_for @user do |f| %>
+
+                <div class="actions">
+                    <br/>
+                    <%= f.submit "SIGN UP FOR TRAVELO", class: "btn btn-primary" %>
+                </div>
+
+            <%end%>
+        </div>
+
+    </body>
+</html>

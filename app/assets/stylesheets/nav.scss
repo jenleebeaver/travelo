@@ -1,0 +1,39 @@
+
+header {
+    background: #FAFD6A;
+    padding: 0px;
+    padding-left: 120px;
+
+    ul {
+      margin: 24px;
+      padding: 0px;
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #41411B;
+    }
+
+    a:hover{
+        color:#000000;
+    }
+  }
+  
+  .left-nav {
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    padding-top: 5px;
+  }
+  
+  .right-nav {
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-right: 70px;
+    padding-top: 10px;
+  }

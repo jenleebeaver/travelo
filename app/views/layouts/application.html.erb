@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travelo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+    <header class='clearfix'>
+      <div class="left-nav">
+        <ul>
+          <li><%= link_to "TRAVELO", home_path %></li>
+        </ul>
+      </div>
+
+
+      <div class="right-nav">
+        <ul>
+          <li><%= link_to 'Login', login_path %></li>
+        </ul>
+      </div>
+
+      <div class="right-nav">
+        <ul>
+          <li><%= link_to 'Signup', signup_path %></li>
+        </ul>
+      </div>  
+ 
+      <div class="right-nav">
+      <ul>
+        <li><%= link_to 'About' %></li>
+      </ul>
+      </div>
+    </header>
+
+    <div class='content'>
+      <%= yield %>
+    </div>
+
+    <footer>
+      <div class="left">
+        <p><a class="travelo-link" href='/home'>TRAVELO</a></p>
+      </div>
+
+      <div class="right">
+        <p><a class="about-link" href='/about'>About</a></p>
+     </div>
+    </footer>
+
+  </body>
+</html>

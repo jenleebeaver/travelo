@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        # <script>
+        #     window.fbAsyncInit = function() {
+        #     FB.init({
+        #     appId      : '300438264535610',
+        #     cookie     : true,
+        #     xfbml      : true,
+        #     version    : '8.0'
+        #     });
+      
+        #     FB.AppEvents.logPageView();   
+      
+        #     };
+
+        #     (function(d, s, id){
+        #     var js, fjs = d.getElementsByTagName(s)[0];
+        #     if (d.getElementById(id)) {return;}
+        #     js = d.createElement(s); js.id = id;
+        #     js.src = "https://connect.facebook.net/en_US/sdk.js";
+        #     fjs.parentNode.insertBefore(js, fjs);
+        #     }(document, 'script', 'facebook-jssdk'));
+        # </script>
+
+        <div class="h1-2">
+            TRAVELO
+            <hr>
+        </div>
+
+        <div class="h2-2">
+            Sign up for free to start connecting!
+        </div>
+
+        # <fb:login-button 
+        #     scope="public_profile,email"
+        #     onlogin="checkLoginState();">
+        # </fb:login-button>
+
+            <div>
+                <a href='/auth/facebook' class="btn-facebook"> SIGN UP WITH FACEBOOK</a>
+            </div>
+
+            <div>
+                <a href='/auth/google' class="btn-facebook btn-google"> SIGN UP WITH GOOGLE</a>
+            </div>
+
+        <p> or </p>
+        <p> Sign up with your email address </p>
+
+        <%= form_tag("/users") do %>
+            <% if @user.errors.any? %>
+                <div id="error_explanation">
+                    <p> One of your input values is incorrect.  Please check and input again. </p>
+
+                    <ul>
+                        <%= @user.errors.full_messages.each do |message|%>
+                            <li><%= message %></li>
+                        <%end%>
+                    </ul>
+                </div>
+            <%end%>
+        <%end%>
+
+        <div class="form">
+            <%= form_for @user do |f| %>
+
+                <div class="form-group" class="field<%= field_with_errors if @user.errors[:name].any?%>">
+                    <%= f.label :name, "What's your name?" %>
+                    <br/>
+                     <%=f.text_field :name, placeholder: "Enter your name.", class: "form-control" %>
+                </div>
+
+                <div class="form-group" class="field<%= field_with_errors if @user.errors[:email].any?%>">
+                    <%= f.label :email, "What's your email?" %>
+                    <br/>
+                    <%=f.text_field :email, placeholder: "Enter your email.", class: "form-control" %>
+                </div>
+
+                <div class="form-group" class="field<%= field_with_errors if @user.errors[:password].any?%>">
+                    <%= f.label :password, "Create a password" %>
+                    <br/>
+                    <%=f.text_field :password, placeholder: "Create a password.", class: "form-control" %>
+                </div>
+
+                <div class="form-group" class="field<%= field_with_errors if @user.errors[:password_confirmation].any?%>">
+                    <%= f.label :password_confirmation, "Confirm your password" %>
+                    <br/>
+                    <%=f.text_field :password_confirmation, placeholder: "Enter your password again.", class: "form-control" %>
+                </div>
+
+                <div class="form-group" class="field<%= field_with_errors if @user.errors[:username].any?%>">
+                    <%= f.label :username, "What should we call you?" %>
+                    <br/>
+                    <%=f.text_field :username, placeholder: "Enter a profile name.", class: "form-control" %>
+                </div>
+
+                <div class="actions">
+                    <br/>
+                    <%= f.submit "SIGN UP", class: "btn btn-primary" %>
+                </div>
+    
+            <%end%>
+        </div>
+
+        <p> Have an account? <%= link_to "Login.", login_path %> </p>
+
+    </body>
+</html>
