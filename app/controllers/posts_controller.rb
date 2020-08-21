@@ -23,7 +23,7 @@ class PostsController < ApplicationController
         if @post.save
             redirect post_path(@post)
         else
-            render 'welcome'
+            render '/posts/new', notice: "Couldn't post. Try again!"
         end
     end
 
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
             @post.save
             redirect_to post_path(@post)
         else 
-            render 'welcome'
+            render '/posts/new'
         end
     end
 

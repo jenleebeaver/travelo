@@ -44,7 +44,7 @@ h1 {
     padding-top: 96px;
 }
 
-.intro h1 {
+h1 .intro {
     color: white;
     background-color: #41566C;
 }
