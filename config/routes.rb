@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   root 'static#home', as: 'home'
 
   #presents signup form
-  get '/signup', to: 'users#new', as: 'signup'
+  get '/signup', to: 'users#new', as: '/signup'
+  get '/user', to: 'users#index' 
   get '/users', to: 'users#index' 
   #creates user with validation
+  post '/user', to: 'users#create'
   post '/users', to: 'users#create'
+  get '/users/:id', to: 'users#show'
+  get '/users/:id/edit', to:'users#edit', as: 'edit_user'
   # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   patch 'users/:id', to: 'users#update', as: 'update'
   post '/delete', to: 'users#destroy', as: 'delete'
@@ -19,12 +23,10 @@ Rails.application.routes.draw do
  
   #presents a login form
   get '/login', to: 'session#new', as: 'login'
-  #creates session and redirect 
+  #creates session from form_tag and redirect 
   # post '/login' => 'session#create'
-  get '/sessions', to: 'session#new'
-  post '/sessions', to: 'session#create'
-  get '/session', to: 'session#new'
   post '/session', to: 'session#create'
+  get '/session', to: 'session#new'
 
  
   # post '/logout', to: 'session#destroy', as: 'logout'

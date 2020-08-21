@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     #GET
     def new
-        @user = User.new
+        # @user = User.new
         if session[:current_user_id]
             redirect_to "/posts/new", notice: "Already logged in!"   
         end
@@ -24,6 +24,8 @@ class UsersController < ApplicationController
 
     #POST
     def create
+        @user = User.new
+        @user = User.create(user_params)
         if (@user = User.create(user_params))
             session[:current_user_id] = @user.id
             @user.save
@@ -34,15 +36,15 @@ class UsersController < ApplicationController
         end
     end
 
-    # def update
-    #     @user = User.update(user_params)
-    #     if @user.valid?
-    #         @user.save
-    #         redirect_to 'welcome'
-    #     else 
-    #         render 'signup'
-    #     end
-    # end
+    def update
+        @user = User.update(user_params)
+        if @user.valid?
+            @user.save
+            redirect_to '/posts/new'
+        else 
+            render 'signup'
+        end
+    end
 
     def destroy 
         User.find(params[:id].destroy)
@@ -53,10 +55,11 @@ class UsersController < ApplicationController
 
     def set_user!
         @user = User.find(params[:id])
+        @user = current_user
     end
 
     def user_params
-        params.permit(
+        params.require(:users).permit(
             :name, 
             :email,
             :password,
