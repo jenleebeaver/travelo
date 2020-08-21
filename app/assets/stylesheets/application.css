@@ -80,6 +80,13 @@ h2 {
     background-color: #41566C;
 }
 
+.notice h2{
+    font-weight: bold;
+    font-size: 16px;
+    color: red;
+    text-align: center;
+}
+
 p {
     font-family: Montserrat, 'sans-serif';
     font-size: 24px;

@@ -10,18 +10,23 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
+    #GET
     def new
         @user = User.new
+        if session[:current_user_id]
+            redirect_to "/posts/new", notice: "Already logged in!"   
+        end
     end
 
     def edit
         set_user!
     end
 
+    #POST
     def create
-        if (user = User.create(user_params))
-            session[:user_id] = user.id
-            user.save
+        if (@user = User.create(user_params))
+            session[:current_user_id] = @user.id
+            @user.save
             redirect_to '/posts/new'
         else
             flash[:error] = "Not a valid input. Please check your values."
@@ -51,7 +56,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(
+        params.permit(
             :name, 
             :email,
             :password,

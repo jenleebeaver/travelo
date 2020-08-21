@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   patch 'users/:id', to: 'users#update', as: 'update'
   post '/delete', to: 'users#destroy', as: 'delete'
 
-  get '/posts/new', to: 'posts#new', as: 'welcome2'
+  get '/posts/new', to: 'posts#new', as: 'welcome'
   post '/posts', to: 'posts#create'
   get '/posts', to: 'posts#index', as: 'index'
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
@@ -17,7 +17,10 @@ Rails.application.routes.draw do
  
 
   get '/login', to: 'session#new', as: 'login'
-  post '/sessions', to: 'sessions#create'
+  get '/sessions', to: 'session#new'
+  post '/sessions', to: 'session#create'
+  post '/session', to: 'session#create'
+  get '/session', to: 'session#new'
   # post '/login' => 'session#create'
   # post '/logout', to: 'session#destroy', as: 'logout'
   get '/logout', to: 'session#destroy', as: 'logout'

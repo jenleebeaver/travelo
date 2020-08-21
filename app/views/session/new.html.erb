@@ -2,6 +2,7 @@
 <html>
     <head></head>
     <body>
+       
         <script>
             window.fbAsyncInit = function() {
             FB.init({
@@ -47,29 +48,58 @@
 
         <p> or </p>
 
+       
 
         <div class="form">
-            <%= form_for @user do |f| %>
+            <%= form_tag("/session") do %>
+                <div class="form-group">
+                    <p>
+                        <%= label_tag "Whats your email?" %>
+                        <br/>
+                        <%= text_field_tag "email", "Enter your email." %>
+                    </p>
+                </div>
+
+                <% if flash[:notice] %>
+                    <div class="notice">
+                        <h2><%= flash[:notice]%></h2>
+                    </div>
+                <%end%>
 
                 <div class="form-group">
-                    <%= f.label :email, "What's your email?" %>
-                    <br/>
-                    <%=f.text_field :email, placeholder: "Enter your email.", class: "form-control" %>
+                    <p>
+                        <%= label_tag "Enter password" %>
+                        <br/>
+                        <%= text_field_tag "email", "Enter password." %>
+                    </p>
                 </div>
 
-                <div class="form-group">
-                    <%= f.label :password, "Create a password" %>
-                    <br/>
-                    <%=f.text_field :password, placeholder: "Create a password.", class: "form-control" %>
+                <div class="btn btn-primary">
+                    <%= submit_tag "Login" %>
                 </div>
-
-                <div class="actions">
-                    <br/>
-                    <%= f.submit "Login", class: "btn btn-primary" %>
-                </div>
-
             <%end%>
-        </div>
+
+            <%= form_for @user do |f| %>  
+
+                <div class="form-group"> 
+                     <%= f.label :email, "What's your email?" %> 
+                    <br/> 
+                    <%=f.text_field :email, placeholder: "Enter your email.", class: "form-control" %> 
+               </div> 
+
+                 <div class="form-group"> 
+                    <%= f.label :password, "Enter password" %> 
+                      <br/> 
+                    <%=f.text_field :password, placeholder: "Enter password.", class: "form-control" %> 
+                </div> 
+
+                 <div class="actions"> 
+                    <br/> 
+                    <%= f.submit "LOGIN", class: "btn btn-primary" %> 
+                 </div> 
+
+            <%end%> 
+         </div>  
 
         <p> Don't have an account? </p>
 
