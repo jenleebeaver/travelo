@@ -15,13 +15,13 @@ class PostsController < ApplicationController
     end
 
     def index
-        @posts = User.all
+        @posts = Post.all
     end
 
     def create
         @post = Post.new(post_params)
         if @post.save
-            redirect post_path(@post)
+            redirect '/posts/index'
         else
             render '/posts/new', notice: "Couldn't post. Try again!"
         end
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
         @post = Post.update(post_params)
         if @post.valid?
             @post.save
-            redirect_to post_path(@post)
+            redirect_to '/posts/index'
         else 
             render '/posts/new'
         end
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(:content)
+        params.require(:posts).permit(:content)
     end
 
 end

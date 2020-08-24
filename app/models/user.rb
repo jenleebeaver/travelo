@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :locations
+    has_many :locations, :class_name => "Location"
     has_many :posts
     has_many :comments, through: :posts
 

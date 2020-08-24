@@ -26,7 +26,7 @@ h1 {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 72px;
+    font-size: 88px;
     line-height: 86px;
     color: #FAFD6A;
     background-color: #000000;
@@ -113,6 +113,7 @@ p {
 .btn:hover {
     color: #000000;
     background-color: #FAFD6A;
+    font-weight: 600;
 }
 
 .btn-facebook {
@@ -143,10 +144,6 @@ p {
   onlogin="checkLoginState();">
 </fb:login-button> */
 
-.ml11 {
-    font-weight: 700;
-    font-size: 3.5em;
-}
   
 .ml11 .text-wrapper {
     position: relative;
@@ -162,7 +159,6 @@ p {
     left: 0;
     height: 100%;
     width: 3px;
-    background-color: #fff;
     transform-origin: 0 50%;
 }
   
