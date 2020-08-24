@@ -6,9 +6,9 @@ class SessionController < ApplicationController
     end
 
     def create
-        @user = User.find_by(:email => params[:email])
-        if @user 
-            login(@user)
+        if @user = User.find_by(email: params[:user][:email])
+            session[:user_id]=@user.id
+            # login(@user)
             redirect_to '/posts/new'
         else
             redirect_to '/signup', notice: "Couldn't find user.  Please signup."
