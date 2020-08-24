@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     skip_before_action :verified_user, only: [:new, :create]
-
+    before_action :user_is_authenticated
 
     def show
         set_post!
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:posts).permit(:content)
+        params.require(:post).permit(:content)
     end
 
 end

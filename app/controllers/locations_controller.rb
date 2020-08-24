@@ -1,4 +1,9 @@
 class LocationsController < ApplicationController
+    before_action :user_is_authenticated?
+
+    def new
+    end
+
     def create
         Location.create(location_params)
         redirect_to user_path(location.user)
@@ -8,8 +13,7 @@ class LocationsController < ApplicationController
 
     def location_params
         params.require(:location).permit(
-            :location;
-            :user_id,
+            :location,
             :post_id
         )
     end

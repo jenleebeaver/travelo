@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
+<head></head>
+<body>
         # <script>
         #     window.fbAsyncInit = function() {
         #     FB.init({
@@ -24,95 +24,87 @@
         #     }(document, 'script', 'facebook-jssdk'));
         # </script>
 
-        <div class="h1-2">
-            TRAVELO
-            <hr>
-        </div>
+<div class="h1-2">
+    TRAVELO
+    <hr>
+</div>
 
-        <div class="h2-2">
-            Sign up for free to start connecting!
-        </div>
+<div class="h2-2">
+    Sign up for free to start connecting!
+</div>
 
         # <fb:login-button 
         #     scope="public_profile,email"
         #     onlogin="checkLoginState();">
         # </fb:login-button>
 
-            <div>
-                <a href='/auth/facebook' class="btn-facebook"> SIGN UP WITH FACEBOOK</a>
-            </div>
+<div>
+    <a href='/auth/facebook' class="btn-facebook"> SIGN UP WITH FACEBOOK</a>
+</div>
 
-            <div>
-                <a href='/auth/google' class="btn-facebook btn-google"> SIGN UP WITH GOOGLE</a>
-            </div>
+<div>
+    <a href='/auth/google' class="btn-facebook btn-google"> SIGN UP WITH GOOGLE</a>
+</div>
 
-        <p> or </p>
-        <p> Sign up with your email address </p>
-
-      
-
-        <div class="form">
-            <%= form_tag("/users") do %>
-                <div class="form-group">
-                    <p>
-                        <%= label_tag "Whats your name?" %>
-                        <br/>
-                        <%= text_field_tag "name", "Enter your name." %>
-                    </p>
-                </div>
-
-                # <% if flash[:notice] %>
-                #     <div class="notice">
-                #         <h2><%= flash[:notice]%></h2>
-                #     </div>
-                # <%end%>
-
-                <div class="form-group">
-                    <p>
-                        <%= label_tag "What's your email?" %>
-                        <br/>
-                        <%= text_field_tag "email", "Enter your email." %>
-                    </p>
-                </div>
-
-                <div class="form-group">
-                    <p>
-                        <%= label_tag "Create a password" %>
-                        <br>
-                        <%= password_field_tag "password", "Create a password."%>
-                    </p>
-                </div>
-
-                <div class="form-group">
-                    <p>
-                        <%= label_tag "Confirm your password" %>
-                        </br>
-                        <%= password_field_tag "password_confirmation", "Enter your password again."%>
-                    </p>
-                </div>
-
-                <div class="form-group">
-                    <p>
-                        <%= label_tag "What should we call you?" %>
-                        <br/>
-                        <%= text_field_tag "username", "Enter a profile name."%>
-                    </p>
-                </div>
-
-                <div class="form-group">
-                    <p>
-                        <%= label_tag "Where will you be traveling?" %>
-                        <br/>
-                        <%= text_field_tag "location", "Enter a location."%>
-                    </p>
-                </div>
-
-                <div class="btn btn-primary">
-                    <%= submit_tag "SIGNUP" %>
-                </div>
-            <%end%>
+<p> or </p>
+<p> Sign up with your email address </p>
+            
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>There were some errors:</h2>
+  
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <p>
+        <%= f.label :name, "What's your name?"%><br>
+        <%= f.text_field :name, placeholder: "Enter your name.", class: "form-control"%>
+      </p>
+    </div>
+    <div class="field">
+      <p>
+        <%= f.label :email, "What's your email?"%><br>
+        <%= f.text_field :name, placeholder: "Enter your email.", class: "form-control"%>
+      </p>
+    </div>
+    <div class="field">
+      <p>
+       <%= f.label :password, "Create a password"%><br>
+       <%= f.password_field :password, placeholder: "Create a password.", class: "form-control"%>
+      </p>
+    </div>
+    <div class="field">
+      <p>
+       <%= f.label :password_confirmation, "Confirm your password"%><br>
+       <%= f.password_field :password_confirmation, placeholder: "Enter your password again.", class: "form-control"%>
+      </p>
+    </div>
+    <div class="field">
+      <p>
+        <%= f.label :username, "What should we call you?"%><br>
+        <%= f.text_field :username, placeholder: "Enter a profile name.", class: "form-control"%>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.label :location, "Where will you be traveling?" %><br/>
+        <%= f.text_field :location, placeholder: "Enter a location.", class: "form-control"%>
+      </p>
+    </div>
+    <div class="actions">
+      <%= f.submit "SIGN UP", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
         <p> Have an account? <%= link_to "Login.", login_path %> </p>
+
 
     </body>
 </html>

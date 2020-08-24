@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get '/posts', to: 'posts#index', as: 'index'
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   patch '/posts/:id', to: 'posts#update', as: 'posts_update'
+
+  resources :locations
+  resources :comments
  
   #presents a login form
   get '/login', to: 'session#new', as: 'login'

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     #GET
     def new
-        # @user = User.new
+        @user = User.new
         if session[:current_user_id]
             redirect_to "/posts/new", notice: "Already logged in!"   
         end
@@ -24,8 +24,7 @@ class UsersController < ApplicationController
 
     #POST
     def create
-        @user = User.new
-        @user = User.create(user_params)
+        @user = User.new(user_params)
         if (@user = User.create(user_params))
             session[:current_user_id] = @user.id
             @user.save
