@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: '/signup'
    #creates user with validation
   post '/users', to: 'users#create'
-  
   get '/users', to: 'users#index' 
  
   
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
   #presents a login form
   get '/login', to: 'session#new', as: 'login'
   #creates session from form_tag and redirect 
-  # post '/login' => 'session#create'
+  post '/login' => 'session#create'
   post '/session', to: 'session#create'
   get '/session', to: 'session#new'
 

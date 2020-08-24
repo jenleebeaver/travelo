@@ -51,12 +51,12 @@
        
 
         <div class="form">
-            <%= form_for(@user) |f| do %>
+            <%= form_for @user, :url => { :action => :new } do |f|%>
                 <div class="form-group">
                     <p>
-                        <%= f.label :email, "Whats your email?" %>
+                        <%= f.label :email%>
                         <br/>
-                        <%= text_field_tag "email", "Enter your email." %>
+                        <%= f.text_field :email, placeholder: "Enter your email." %>
                     </p>
                 </div>
 
@@ -68,9 +68,9 @@
 
                 <div class="form-group">
                     <p>
-                        <%= label_tag "Enter password" %>
+                        <%= f.label :password%>
                         <br/>
-                        <%= password_field_tag "password", "Enter password." %>
+                        <%= f.password_field :password, placeholder: "Password." %>
                     </p>
                 </div>
 
@@ -78,21 +78,13 @@
                     <%= submit_tag "Login" %>
                 </div>
             <%end%>
-
-         </div>  
+         </div> 
 
         <p> Don't have an account? </p>
 
-        <div class="form">
-            <%= form_for @user do |f| %>
-
-                <div class="actions">
-                    <br/>
-                    <%= f.submit "SIGN UP FOR TRAVELO", class: "btn btn-primary" %>
-                </div>
-
-            <%end%>
-        </div>
+        <div class="login">
+            <a class="btn btn-anchor" href="/signup"> SIGN UP FOR TRAVELO</a> 
+           </div>
 
     </body>
 </html>
