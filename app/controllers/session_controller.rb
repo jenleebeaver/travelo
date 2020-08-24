@@ -7,8 +7,8 @@ class SessionController < ApplicationController
 
     def create
         if @user = User.find_by(email: params[:user][:email])
-            session[:user_id]=@user.id
-            # login(@user)
+            session[:user_id]= @user.id
+            login(@user)
             redirect_to '/posts/new'
         else
             redirect_to '/signup', notice: "Couldn't find user.  Please signup."
@@ -18,7 +18,7 @@ class SessionController < ApplicationController
     def destroy 
         session.delete("user_id")
         reset_session
-        redirect_to root_path
+        redirect_to 'home'
     end
 
 end

@@ -19,7 +19,7 @@
         </ul>
       </div>
 
-      <% if session[:current_user_id] %>
+      <% if session[:user_id] %>
       <div class="right-nav">
         <ul>
           <li><%= link_to 'Logout', logout_path %></li>

@@ -14,14 +14,14 @@ module ApplicationHelper
     end
 
     def current_user
-        if session[:current_user_id]
-            @current_user ||= User.find_by(id: session[:current_user_id])
+        if session[:user_id]
+            @current_user ||= User.find_by(id: session[:user_id])
             #first time will populate @current_user
         end
     end
 
     def login(user)
         #saves user.id in the session -> persists 
-        session[:current_user_id] = @user.id
+        session[:user_id] = @user.id
     end
 end

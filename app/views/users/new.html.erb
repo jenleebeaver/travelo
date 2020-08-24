@@ -46,6 +46,11 @@
     <a href='/auth/google' class="btn-facebook btn-google"> SIGN UP WITH GOOGLE</a>
 </div>
 
+<div>
+    <p>Your error will be printed below...</p>
+    <h2><%= flash[:error] %></h2>
+</div>
+
 <p> or </p>
 <p> Sign up with your email address </p>
             
@@ -64,8 +69,8 @@
   
     <div class="field">
       <p>
-        <%= f.label :name, "What's your name?"%><br>
-        <%= f.text_field :name, placeholder: "Enter your name.", class: "form-control"%>
+        <%= f.label :full_name, "What's your name?"%><br>
+        <%= f.text_field :full_name, placeholder: "Enter your name.", class: "form-control"%>
       </p>
     </div>
     <div class="field">

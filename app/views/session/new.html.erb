@@ -51,10 +51,10 @@
        
 
         <div class="form">
-            <%= form_tag("/session") do %>
+            <%= form_for(@user) |f| do %>
                 <div class="form-group">
                     <p>
-                        <%= label_tag "Whats your email?" %>
+                        <%= f.label :email, "Whats your email?" %>
                         <br/>
                         <%= text_field_tag "email", "Enter your email." %>
                     </p>
