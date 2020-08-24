@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
   #presents signup form
   get '/signup', to: 'users#new', as: '/signup'
-  get '/user', to: 'users#index' 
-  get '/users', to: 'users#index' 
-  #creates user with validation
-  post '/user', to: 'users#create'
+   #creates user with validation
   post '/users', to: 'users#create'
+  
+  get '/users', to: 'users#index' 
+ 
+  
+
   get '/users/:id', to: 'users#show'
   get '/users/:id/edit', to:'users#edit', as: 'edit_user'
   # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
