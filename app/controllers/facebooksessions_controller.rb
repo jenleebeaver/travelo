@@ -1,15 +1,15 @@
 
 class FacebooksessionsController < ApplicationController
+  skip_before_action :verified_user, only: [:new, :create, :auth]
 
     def create
       @user = User.find_or_create_by(uid: auth['uid']) do |u|
-        u.name = auth['info']['name']
+        u.full_name = auth['info']['full_name']
         u.email = auth['info']['email']
         u.image = auth['info']['image']
       end
-   
+      login(@user)
       session[:user_id] = @user.id
-   
       render 'posts/new'
     end
    

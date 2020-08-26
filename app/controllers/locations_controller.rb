@@ -4,6 +4,10 @@ class LocationsController < ApplicationController
     def new
     end
 
+    def index
+        @locations = Location.all
+    end
+
     def create
         Location.create(location_params)
         redirect_to user_path(location.user)
@@ -13,7 +17,7 @@ class LocationsController < ApplicationController
 
     def location_params
         params.require(:location).permit(
-            :location,
+            :location_name,
             :post_id
         )
     end

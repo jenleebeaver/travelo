@@ -7,20 +7,20 @@ Rails.application.routes.draw do
    #creates user with validation
   post '/users', to: 'users#create'
   get '/users', to: 'users#index' 
- 
-  
-
   get '/users/:id', to: 'users#show'
   get '/users/:id/edit', to:'users#edit', as: 'edit_user'
-  # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   patch 'users/:id', to: 'users#update', as: 'update'
   post '/delete', to: 'users#destroy', as: 'delete'
+  # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   get '/posts/new', to: 'posts#new', as: 'welcome'
   post '/posts', to: 'posts#create'
-  get '/posts', to: 'posts#index', as: 'index'
+  get '/posts', to: 'posts#index', as: 'posts_index'
+  get '/posts/:id', to: 'users#show'
+  get '/posts/:id/edit', to:'posts#edit', as: 'edit_post'
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   patch '/posts/:id', to: 'posts#update', as: 'posts_update'
+  post '/posts/delete', to: 'posts#destroy', as: 'posts_delete'
 
   resources :locations
   resources :comments

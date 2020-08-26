@@ -1,4 +1,3 @@
-
 <div class="container">
 <header></header>
 <main>
@@ -10,7 +9,7 @@
       <%end%>
 
       <h1> Welcome, <%= current_user.full_name %>!<br/></h1>
-      <h2>Here are all of your posts.</h2> 
+      <h2>Here is are all of the posts associated with your location.</h2> 
   </div>
 
   <div><%= link_to 'Create Post', welcome_path %></div>
@@ -19,24 +18,18 @@
 <table>
   <thead>
     <tr>
-      <th><%= current_user.username %></th>
+      <th><%= User.username %></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @posts.each do |song| %>
+    <% @posts.location.each do |song| %>
       <tr>
         <td><%= post.content %></td>
-        <td>
-          <%= link_to 'Edit', edit_post_path(post) %> |
-          <%= link_to 'Delete', posts, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
- #insert comment link here 
 
 </main>
 </div>

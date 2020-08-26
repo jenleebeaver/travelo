@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_063557) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "location"
+    t.string "location_name"
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_08_24_063557) do
 
   create_table "posts", force: :cascade do |t|
     t.string "content"
+    t.integer "user_id"
+    t.integer "comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

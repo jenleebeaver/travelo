@@ -13,57 +13,7 @@
         <h2>Welcome to your feed!</h2> 
     </div>
 
-    <%= form_for(@post) do |f| %>
-        <% if @post.errors.any? %>
-          <div id="error_explanation">
-            <h2>There were some errors:</h2>
-      
-            <ul>
-              <% @post.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      
-        <div class="field">
-          <%= f.label :content, "Make a post!"%><br>
-          <%= f.text_field :content, placeholder: "Tell us something about your travel experience at your location!", class: "form-control"%>
-        </div>
-        
-        <div class="actions">
-          <%= f.submit "Post", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-
-    <%= form_tag('/posts') do %>
-        <% if @post.errors.any? %>
-            <div id="error_explanation">
-                <p> Post must be 50-200 words. </p>
-            
-                <ul>
-                    <%= @post.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                    <%end%>
-                </ul>
-            </div>
-        <%end%>
-    <%end%>
-
-    <div class="form">
-        <%= form_for @post do |f| %>
-            <div class="form-group" class="field<%= field_with_errors if @post.errors[:content].any?%>">
-                <%= f.label :content, "Make a post!"%>
-                <br/>
-                <%= f.text_field :content, placeholder: "Tell us something about your travel experience at your location!", class: "form-control" %>
-            </div>
-
-            <div class="actions">
-                <br/>
-                <%= f.submit "Post", class: "btn btn-primary" %>
-            </div>
-        <%end%>
-    </div>
+ <%= render 'form' %>
 
   </main>
 </div>

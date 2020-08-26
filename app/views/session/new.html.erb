@@ -1,90 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
+<head></head>
+<body>
        
-        <script>
-            window.fbAsyncInit = function() {
-            FB.init({
-            appId      : '300438264535610',
-            cookie     : true,
-            xfbml      : true,
-            version    : '8.0'
-            });
+<script>
+    window.fbAsyncInit = function() {
+    FB.init({
+    appId      : '300438264535610',
+    cookie     : true,
+    xfbml      : true,
+    version    : '8.0'
+    });
 
-            FB.AppEvents.logPageView();   
-            };
+    FB.AppEvents.logPageView();   
+    };
 
-            (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
+    (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
-        <div class="h1-2">
-            TRAVELO
-            <hr>
+<div class="h1-2">
+    TRAVELO
+</div>
+<hr>
+<br>
+<br>
+<div>
+    <p>To continue, log into travelo.</p>
+</div>
+
+<fb:login-button 
+    scope="public_profile,email"
+    onlogin="checkLoginState();">
+</fb:login-button>
+
+<div class="OAuth"
+    <div>
+        <a href='/auth/facebook' class="btn-facebook"> CONTINUE WITH FACEBOOK</a>
+    </div>
+
+    <div>
+        <a href='/auth/google' class="btn-facebook btn-google"> CONTINUE WITH GOOGLE</a>
+    </div>
+</div>
+
+<p> or </p>
+<hr class="hr2">
+
+<div class="form">
+    <%= form_for @user, :url => { :action => :new } do |f|%>
+
+        <div class="field">
+            <p>
+                <%= f.label :email%>
+                <br/>
+                <%= f.text_field :email, placeholder: "Enter your email." %>
+            </p>
         </div>
 
-        <div>
-            <p>To continue, log into travelo.</p>
+        <% if flash[:notice] %>
+            <div class="notice">
+                <h2><%= flash[:notice]%></h2>
+            </div>
+        <%end%>
+
+        <div class="field">
+            <p>
+                <%= f.label :password%>
+                <br/>
+                <%= f.password_field :password, placeholder: "Password." %>
+            </p>
         </div>
 
-        <fb:login-button 
-            scope="public_profile,email"
-            onlogin="checkLoginState();">
-        </fb:login-button>
-
-        <div>
-            <a href='/auth/facebook' class="btn-facebook"> CONTINUE WITH FACEBOOK</a>
+        <div class="actions">
+            <%= f.submit "LOGIN", class: "btn btn-primary login" %>
         </div>
+    <%end%>
+</div> 
+<br>  
+<br>
+<hr class="hr2">
+<p> Don't have an account? </p>
 
-        <div>
-            <a href='/auth/google' class="btn-facebook btn-google"> CONTINUE WITH GOOGLE</a>
-        </div>
+<div class="actions">
+    <a class="btn btn-primary btn2" href="/signup"> SIGN UP FOR TRAVELO</a> 
+</div>
 
-        <p> or </p>
-
-       
-
-        <div class="form">
-            <%= form_for @user, :url => { :action => :new } do |f|%>
-                <div class="form-group">
-                    <p>
-                        <%= f.label :email%>
-                        <br/>
-                        <%= f.text_field :email, placeholder: "Enter your email." %>
-                    </p>
-                </div>
-
-                <% if flash[:notice] %>
-                    <div class="notice">
-                        <h2><%= flash[:notice]%></h2>
-                    </div>
-                <%end%>
-
-                <div class="form-group">
-                    <p>
-                        <%= f.label :password%>
-                        <br/>
-                        <%= f.password_field :password, placeholder: "Password." %>
-                    </p>
-                </div>
-
-                <div class="btn btn-primary">
-                    <%= submit_tag "Login" %>
-                </div>
-            <%end%>
-         </div> 
-
-        <p> Don't have an account? </p>
-
-        <div class="login">
-            <a class="btn btn-anchor" href="/signup"> SIGN UP FOR TRAVELO</a> 
-           </div>
-
-    </body>
+</body>
 </html>

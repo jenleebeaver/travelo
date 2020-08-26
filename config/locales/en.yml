@@ -31,3 +31,21 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            full_name: 
+              format: "%{}"
+              blank: "Must include full name."
+            username:
+              blank: "Must include a username."
+            password:
+              blank: "Must include password."
+            email:
+              blank: "Must include your email address."
+            location:
+              blank: "Must include a location."
+
+

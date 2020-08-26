@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
+        @users = User.all
     end
 
     def edit
@@ -20,14 +21,17 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
+        puts @post.inspect
         if @post.save
             redirect '/posts/index'
         else
+            puts 'something went wrong'
             render '/posts/new', notice: "Couldn't post. Try again!"
         end
     end
 
     def update
+        set_post!
         @post = Post.update(post_params)
         if @post.valid?
             @post.save

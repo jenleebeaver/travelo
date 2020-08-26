@@ -58,6 +58,11 @@ hr {
     margin-top: .5em;
 }
 
+.hr2 {
+    height: 1px;
+    width: 25%
+}
+
 h2 {
     font-family: "Montserrat", sans-serif;
     font-style: normal;
@@ -110,6 +115,13 @@ p {
     display: inline-block;
 }
 
+.btn2 {
+    background: #FAFD6A;
+    border: 3px solid black !important;
+    color: black;
+    font-weight: 600 !important;
+}
+
 .btn:hover {
     color: #000000;
     background-color: #FAFD6A;
@@ -133,10 +145,22 @@ p {
 .btn-google {
     background: red !important;
     margin-top: 16px !important;
+    text-align: center !important;
 }
 
 .actions {
     text-align: center;
+}
+
+.OAuth {
+    text-align: center !important;
+}
+
+.login {
+    text-align: center !important;
+    background-color: #EE8F2A !important;
+    color: black !important;
+    font-weight: 600 !important;
 }
 
 /* <fb:login-button 
