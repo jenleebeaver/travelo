@@ -70,7 +70,7 @@
         </div>
     <%end%>
   
-    <div class="field">
+    <div class="field" class="fields_with_errors">
       <p>
         <%= f.label :full_name, "What's your name?"%><br>
         <%= f.text_field :full_name, 
@@ -80,7 +80,7 @@
         %>
       </p>
     </div>
-    <div class="field">
+    <div class="field" class="fields_with_errors">
       <p>
         <%= f.label :email, "What's your email?"%><br>
         <%= f.email_field :email, 
@@ -90,7 +90,7 @@
         %>
       </p>
     </div>
-    <div class="field">
+    <div class="field" class="fields_with_errors">
       <p>
        <%= f.label :password, "Create a password"%><br>
        <%= f.password_field :password, 
@@ -100,7 +100,7 @@
         %>
       </p>
     </div>
-    <div class="field">
+    <div class="field" class="fields_with_errors">
       <p>
        <%= f.label :password_confirmation, "Confirm your password"%><br>
        <%= f.password_field :password_confirmation, 
@@ -110,7 +110,7 @@
         %>
       </p>
     </div>
-    <div class="field">
+    <div class="field" class="fields_with_errors">
       <p>
         <%= f.label :username, "What should we call you?"%><br/>
         <%= f.text_field :username, 
@@ -120,16 +120,7 @@
         %>
       </p>
     </div>
-    <div class="field">
-      <p>
-        <%= f.label :location, "Where will you be traveling?" %><br/>
-        <%= f.text_field :location, 
-          placeholder: "Enter a location.", 
-          :required => true, 
-          class: "form-control"
-        %>
-      </p>
-    </div>
+    
     <br>
     <div class="actions">
       <%= f.submit "SIGN UP", 

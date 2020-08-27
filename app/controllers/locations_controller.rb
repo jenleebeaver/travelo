@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
     before_action :user_is_authenticated?
 
     def new
+        @location = Location.new
     end
 
     def index
@@ -9,6 +10,7 @@ class LocationsController < ApplicationController
     end
 
     def create
+        @location = Location.new(location_params)
         Location.create(location_params)
         redirect_to user_path(location.user)
     end

@@ -8,7 +8,6 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
-        @users = User.all
     end
 
     def edit
@@ -20,9 +19,10 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.new(post_params)
+        #takes current user and instantiates new post (this associates our posts to users)
+        @post = current_user.posts.build(post_params)
         if @post.save
-            redirect '/posts/index'
+            redirect_to '/posts/index'
         else
             render '/posts/new', notice: "Couldn't post. Try again!"
         end
@@ -52,9 +52,10 @@ class PostsController < ApplicationController
 
     def post_params
         params.require(:post).permit(
-            :content, 
+            :content,
             :user_id,
-            :post_id
+            :post_id,
+            :location_id 
             )
     end
 

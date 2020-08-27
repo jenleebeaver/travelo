@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user!, only: [:show, :edit]
-    skip_before_action :verified_user, only: [:new, :create]
+    skip_before_action :verified_user, only: [:new, :create, :destroy]
 
     #find by id 
     def show

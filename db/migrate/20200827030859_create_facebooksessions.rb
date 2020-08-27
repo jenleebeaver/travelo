@@ -3,7 +3,7 @@ class CreateFacebooksessions < ActiveRecord::Migration[6.0]
     create_table :facebooksessions do |t|
       t.string :email
       t.string :uid
-      t.string :iimage
+      t.string :image
       t.string :full_name
 
       t.timestamps

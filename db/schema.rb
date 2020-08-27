@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_030859) do
   create_table "facebooksessions", force: :cascade do |t|
     t.string "email"
     t.string "uid"
-    t.string "iimage"
+    t.string "image"
     t.string "full_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_030859) do
     t.string "content"
     t.integer "user_id"
     t.integer "comment_id"
+    t.integer "location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -49,7 +50,6 @@ ActiveRecord::Schema.define(version: 2020_08_27_030859) do
     t.string "password_confirmation"
     t.string "password_digest"
     t.string "username"
-    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -47,6 +47,11 @@ gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+#GeoLocation 
+gem 'browser' # This gem is used for grabbing browser details
+gem 'maxminddb' # We use MaxMindDB for locating geolocation of the user
+# gem ‘leaflet-rails’ # Leaflet is used to place the geo details into a map
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
