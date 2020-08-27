@@ -9,7 +9,7 @@ class FacebooksessionsController < ApplicationController
         u.image = auth['info']['image']
       end
       login(@user)
-      session[:user_id] = @user.id
+      session[:user_id] = @current_user
       render 'posts/new'
     end
    

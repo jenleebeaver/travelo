@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
-    #GET
+    #GET or loading signup form 
     def new
         @user = User.new
         if session[:user_id]
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         set_user!
     end
 
-    #POST
+    #POST signup
     def create
         @user = User.new(user_params)
         if @user.valid?
