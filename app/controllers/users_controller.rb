@@ -49,14 +49,15 @@ class UsersController < ApplicationController
 
     def destroy 
         User.find(params[:id].destroy)
+        reset_session
         redirect_to 'home'
     end
 
     private 
 
     def set_user!
-        @user = User.find(params[:id])
-        @user = current_user
+        @user = User.find_by(:id => params[:id])
+        # @user = current_user
     end
 
     def user_params
@@ -68,8 +69,6 @@ class UsersController < ApplicationController
             :password_digest,
             :username,
             :location,
-            :uid,
-            :image
             )
     end
 

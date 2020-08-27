@@ -21,11 +21,9 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        puts @post.inspect
         if @post.save
             redirect '/posts/index'
         else
-            puts 'something went wrong'
             render '/posts/new', notice: "Couldn't post. Try again!"
         end
     end

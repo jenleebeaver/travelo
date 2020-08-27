@@ -3,15 +3,17 @@ class SessionController < ApplicationController
 
     def new
         @user = User.new
+        render :new
     end
 
     def create
-        if @user = User.find_by(email: params[:user][:email])
+        @user = User.find_by(email: params[:user][:email])
+        if @user && @user.authenticate(params[:user][:password])
             session[:user_id]= @user.id
-            login(@user)
-            redirect_to '/posts/new'
+            redirect_to welcome_path
         else
-            redirect_to '/signup', notice: "Couldn't find user.  Please signup."
+            redirect_to 'session/new', notice: "Couldn't find user.  Please signup."
+            #render gives us the div field with errors and an extra layer of security vs redirect. Render can't be used in form_for.'
         end
     end
 

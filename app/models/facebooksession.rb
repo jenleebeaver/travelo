@@ -1,0 +1,2 @@
+class Facebooksession < ApplicationRecord
+end

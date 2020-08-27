@@ -1,6 +1,6 @@
-<h2> Edit "<%=@user.name%>" </h2>
+<h2> Edit "<%=current_user.full_name%>" </h2>
 
-<%= form_tag user_path(@user), method: "patch" do%>
+<%= form_tag users_path(@user), method: "patch" do%>
     <div class="field">
         <%= label_tag "name", "Name" %>
         <%=text_field_tag "name"%>
@@ -30,7 +30,7 @@
         <%=text_field_tag :username, @user.username%>
     </div>
 
-    <%= submit_tag "Update", update_path %>
+    # <%= submit_tag "Update", update_path %>
     <% end %>
 
     <%= link_to "Delete", user, method: :delete, data: 
