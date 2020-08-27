@@ -73,42 +73,69 @@
     <div class="field">
       <p>
         <%= f.label :full_name, "What's your name?"%><br>
-        <%= f.text_field :full_name, placeholder: "Enter your name.", :required => true, class: "form-control"%>
+        <%= f.text_field :full_name, 
+          placeholder: "Enter your name.", 
+          :required => true, 
+          class: "form-control"
+        %>
       </p>
     </div>
     <div class="field">
       <p>
         <%= f.label :email, "What's your email?"%><br>
-        <%= f.email_field :email, placeholder: "Enter your email.", :required => true, class: "form-control"%>
+        <%= f.email_field :email, 
+          placeholder: "Enter your email.", 
+          :required => true, 
+          class: "form-control"
+        %>
       </p>
     </div>
     <div class="field">
       <p>
        <%= f.label :password, "Create a password"%><br>
-       <%= f.password_field :password, placeholder: "Create a password.", :required => true, class: "form-control"%>
+       <%= f.password_field :password, 
+          placeholder: "Create a password.", 
+          :required => true, 
+          class: "form-control"
+        %>
       </p>
     </div>
     <div class="field">
       <p>
        <%= f.label :password_confirmation, "Confirm your password"%><br>
-       <%= f.password_field :password_confirmation, placeholder: "Enter your password again.", :required => true, class: "form-control"%>
+       <%= f.password_field :password_confirmation, 
+          placeholder: "Enter your password again.", 
+          :required => true, 
+          class: "form-control"
+        %>
       </p>
     </div>
     <div class="field">
       <p>
         <%= f.label :username, "What should we call you?"%><br/>
-        <%= f.text_field :username, placeholder: "Enter a profile name.", :required => true, class: "form-control"%>
+        <%= f.text_field :username, 
+          placeholder: "Enter a profile name.", 
+          :required => true, 
+          class: "form-control"
+        %>
       </p>
     </div>
     <div class="field">
       <p>
         <%= f.label :location, "Where will you be traveling?" %><br/>
-        <%= f.text_field :location, placeholder: "Enter a location.", :required => true, class: "form-control"%>
+        <%= f.text_field :location, 
+          placeholder: "Enter a location.", 
+          :required => true, 
+          class: "form-control"
+        %>
       </p>
     </div>
     <br>
     <div class="actions">
-      <%= f.submit "SIGN UP", :required => true, class: "btn btn-primary" %>
+      <%= f.submit "SIGN UP", 
+        :required => true, 
+        class: "btn btn-primary" 
+      %>
     </div>
   <% end %>
 

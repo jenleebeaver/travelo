@@ -59,7 +59,11 @@
             <p>
                 <%= f.label :email%>
                 <br/>
-                <%= f.email_field :email, placeholder: "Enter your email.", :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+                <%= f.email_field :email, 
+                    placeholder: "Enter your email.", 
+                    :required => true, 
+                    :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' 
+                %>
             </p>
         </div>
 
@@ -73,7 +77,10 @@
             <p>
                 <%= f.label :password%>
                 <br/>
-                <%= f.password_field :password, placeholder: "Password.", :required => true %>
+                <%= f.password_field :password, 
+                    placeholder: "Password.", 
+                    :required => true 
+                %>
             </p>
         </div>
 

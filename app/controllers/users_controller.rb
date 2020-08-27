@@ -28,6 +28,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.valid?
             @user.save
+            #user login
             session[:user_id] = @user.id
             redirect_to '/posts/new'
         else
