@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
     belongs_to :user
     #add optional: true when first instantiating without location data
-    belongs_to :location, optional: true 
+    belongs_to :location
 
     validates :content, length: {minimum: 50, maximum: 1000},  presence: true
     validates :location_name, presence: true

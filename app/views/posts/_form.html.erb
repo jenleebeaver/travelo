@@ -1,5 +1,6 @@
 #partial
 <%= form_for(@post) do |f| %>
+
     <% if @post.errors.any? %>
       <div id="error_explanation">
         <ul>
@@ -20,7 +21,7 @@
 
     <div class="field" class="fields_with_errors">
       <p>
-        <%= f.label :location, "Where are you located?" %><br/>
+        <%= f.label :location_id, "Where are you located?" %><br/>
         <%= f.collection_select :location_id, 
           Location.all, 
           :id, 
@@ -29,6 +30,16 @@
           :required => true, 
           class: "form-control"
         %>
+      </p>
+    </div>
+
+    <div>
+      <h3>
+        Location:
+      </h3>
+      <%= @ret.country.name %>, <%= @ret.city.name %>
+      <%= @ret.subdivisions.most_specific.name %>
+    </div>
     
     <div class="actions">
       <%= f.submit "Post", class: "btn btn-primary" %>

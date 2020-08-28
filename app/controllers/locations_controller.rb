@@ -6,7 +6,11 @@ class LocationsController < ApplicationController
     end
 
     def index
-        @locations = Location.all
+        @locations = Location.all.includes(:users, :posts)
+    end
+
+    def show
+        @location = Location.find_by(id: params[:id])
     end
 
     def create
