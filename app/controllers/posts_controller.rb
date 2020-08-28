@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     def new
         @post = Post.new
         ip_location
+        # @location = @post.Location.build
     end
 
     def edit
@@ -57,7 +58,10 @@ class PostsController < ApplicationController
             :content,
             :user_id,
             :post_id,
-            :location_id 
+            :location_id,
+            locations_attributes: [
+                :location_name,
+                :post_id] 
             )
     end
 

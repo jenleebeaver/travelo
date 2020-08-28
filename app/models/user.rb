@@ -2,7 +2,8 @@ class User < ApplicationRecord
     #password validations
     has_secure_password
     has_many :posts
-    has_many :locations, through: :post
+    has_many :locations, through: :posts
+    has_many :comments, through: :posts
 
     validates :full_name, length: {minimum: 2}, presence: true
     validates :username, length: {minimum: 3}, uniqueness: true, presence: true
