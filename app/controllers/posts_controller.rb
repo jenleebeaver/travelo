@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     def new
         @post = Post.new
         ip_location
-        # @location = @post.Location.build
+        location= @post.location.build
     end
 
     def edit
