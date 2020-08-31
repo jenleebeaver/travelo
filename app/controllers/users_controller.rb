@@ -69,6 +69,9 @@ class UsersController < ApplicationController
             :password_digest,
             :username,
             :location,
+            # locations_attributes: [
+            #     :location_name,
+            #     :post_id] 
             )
     end
 

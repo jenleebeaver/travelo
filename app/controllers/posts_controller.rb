@@ -59,9 +59,9 @@ class PostsController < ApplicationController
             :content,
             :user_id,
             :post_id,
-            locations_attributes: [
-                :location_name,
-                :post_id] 
+            # locations_attributes: [
+            #     :location_name,
+            #     :post_id] 
             )
     end
 

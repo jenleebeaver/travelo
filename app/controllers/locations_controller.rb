@@ -1,5 +1,4 @@
 class LocationsController < ApplicationController
-    before_action :user_is_authenticated?
 
     def index
         if params[:post_id]
