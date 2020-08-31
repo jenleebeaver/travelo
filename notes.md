@@ -24,3 +24,17 @@
     </div>
 
      <%= f.collection_check_boxes :location_id, Location.all, :id, :location_name %>
+
+      <div class="field" class="fields_with_errors">
+      <p>
+        <%= f.fields_for :location, @location do |l| %>
+          <%= l.label :location_name, "Where are you located?" %><br/>
+          <%= l.text_field :location_name, 
+            prompt: true, 
+            :required => true, 
+            class: "form-control"
+          %>
+          <%= p.hidden_field user_id, :value => current_user.id %>
+        <%end%>
+      </p>
+    </div>

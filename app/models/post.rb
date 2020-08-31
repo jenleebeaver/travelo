@@ -9,12 +9,21 @@ class Post < ApplicationRecord
     validates :location_name, presence: true
     validates :not_a_robot, acceptance: { message: "Humans only!" }
 
-    def locations_attributes=(location_attributes)
-        location_attributes.values.each do |location_attribute|
-          if location_attribute["location_name"].present?
-            location = Location.find_or_create_by(location_attribute)
-            self.locations << location
-          end
-        end
-      end
+    #defining setter and getter method for location_name
+    def location_name=(name)
+        self.location = Location.find_or_create_by(location_name: name)
+    end
+
+    def location_name
+        self.location ? self.location.location_name : nil
+    end
+
+    # def locations_attributes=(location_attributes)
+    #     location_attributes.values.each do |location_attribute|
+    #       if location_attribute["location_name"].present?
+    #         location = Location.find_or_create_by(location_attribute)
+    #         self.locations << location
+    #       end
+    #     end
+    #   end
 end

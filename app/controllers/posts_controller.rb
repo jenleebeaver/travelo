@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
     def show
         set_post!
+        @posts = Post.all
     end
 
     def new
@@ -17,9 +18,9 @@ class PostsController < ApplicationController
     end
 
     def create
+        Post.create(post_params)
         #takes current user and instantiates new post (this associates our posts to users)
         @post = current_user.posts.build(post_params)
-        puts @post.inspect
         if @post.save
             redirect_to '/posts/index'
         else
@@ -56,13 +57,11 @@ class PostsController < ApplicationController
 
     def post_params
         params.require(:post).permit(
+            :location_name,
             :content,
             :user_id,
-            :post_id,
-            # locations_attributes: [
-            #     :location_name,
-            #     :post_id] 
-            )
+            :location_id
+        )
     end
 
     private

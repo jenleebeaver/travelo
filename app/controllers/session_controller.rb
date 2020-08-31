@@ -20,7 +20,7 @@ class SessionController < ApplicationController
     def destroy 
         session.delete("user_id")
         reset_session
-        redirect_to 'static/home'
+        redirect_to home_path
     end
 
 end
