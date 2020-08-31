@@ -2,6 +2,10 @@ class PostsController < ApplicationController
     skip_before_action :verified_user, only: [:new, :create]
     before_action :user_is_authenticated
 
+    def index
+        @posts = Post.all
+    end
+
     def show
         set_post!
     end
@@ -9,26 +13,21 @@ class PostsController < ApplicationController
     def new
         @post = Post.new
         ip_location
-        location= @post.location.build
-    end
-
-    def edit
-        set_post!
-    end
-
-    def index
-        @posts = Post.all
+        # location= @post.location.build
     end
 
     def create
         #takes current user and instantiates new post (this associates our posts to users)
         @post = current_user.posts.build(post_params)
-        puts @post.inspect
         if @post.save
             redirect_to '/posts/index'
         else
             render '/posts/new', notice: "Couldn't post. Try again!"
         end
+    end
+
+    def edit
+        set_post!
     end
 
     def update
@@ -43,14 +42,15 @@ class PostsController < ApplicationController
     end
 
     def destroy 
-        Post.find(params[:id].destroy)
+        Post.(params[:id].destroy)
+        flash[:notice] = "Your post has been deleted."
         redirect_to 'welcome'
     end
 
     private
 
     def set_post!
-        @post = Post.find(params[:id])
+        @post = Post.find_by(:id => params[:id])
     end
 
     def post_params

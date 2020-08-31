@@ -23,7 +23,7 @@
 
     <div class="field" class="fields_with_errors">
       <p>
-        <%= f.fields_for :location, @post.locations.build do |l| %>
+        <%= f.fields_for :location, @post.location.build do |l| %>
           <%= l.label :location_name, "Where are you located?" %><br/>
           <%= l.text_field :location_name, 
             prompt: true, 
