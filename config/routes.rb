@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   root 'static#home', as: 'home'
 
   #presents signup form
-  # get '/signup', to: 'users#new', as: 'signup'
+  get '/signup', to: 'users#new', as: 'signup'
   #  #creates user with validation
-  # post '/users', to: 'users#create'
-  # get '/users', to: 'users#index' 
-  # get '/users/:id', to: 'users#show'
-  # get '/users/:id/edit', to:'users#edit', as: 'edit_user'
-  # patch '/users/:id', to: 'users#update', as: 'update'
-  # post '/delete', to: 'users#destroy', as: 'delete'
+  post '/users', to: 'users#create'
+  get '/users', to: 'users#index' 
+  get '/users/:id', to: 'users#show'
+  get '/users/:id/edit', to:'users#edit', as: 'edit_user'
+  patch '/users/:id', to: 'users#update', as: 'update'
+  post '/delete', to: 'users#destroy', as: 'delete'
   # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   
   resources :users do 
