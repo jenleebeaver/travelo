@@ -22,3 +22,5 @@
       :disabled => true,
       class: "form-control"%>
     </div>
+
+     <%= f.collection_check_boxes :location_id, Location.all, :id, :location_name %>

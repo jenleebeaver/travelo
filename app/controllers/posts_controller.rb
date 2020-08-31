@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     def create
         #takes current user and instantiates new post (this associates our posts to users)
         @post = current_user.posts.build(post_params)
+        puts @post.inspect
         if @post.save
             redirect_to '/posts/index'
         else
@@ -58,7 +59,6 @@ class PostsController < ApplicationController
             :content,
             :user_id,
             :post_id,
-            :location_id,
             locations_attributes: [
                 :location_name,
                 :post_id] 
