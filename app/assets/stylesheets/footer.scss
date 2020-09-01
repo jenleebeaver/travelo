@@ -3,9 +3,7 @@
 
 footer {
         background: #FAFD6A;
-        padding: 0px;
-        padding-top: 75px;
-        padding-bottom: 75px;
+        padding-bottom: 60px;
 }
 
 .left-footer {
@@ -15,6 +13,8 @@ footer {
     font-weight: bold;
     padding-top: 5px;
     color: #41411B;
+    text-decoration: none; 
+    padding-left: 120px; 
   }
 
 .left-footer:hover {
@@ -28,9 +28,7 @@ footer {
     color: #41411B;
     float: right;
     padding-top: 24px;
-    padding-right: 100px; 
-    text-decoration: none; 
-    padding-left: 120px;    
+    padding-right: 100px;    
     }
 
 .about-link:hover {

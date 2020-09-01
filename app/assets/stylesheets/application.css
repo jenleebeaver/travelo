@@ -32,6 +32,23 @@ h1 {
     margin: 0;
 }
 
+.main-header {
+    background-color: #41566C;
+}
+
+.h1-main {
+    background-color: #41566C;
+    color: white;
+    font-size: 72px;
+    padding-top: 82px;
+}
+
+.h2-main {
+    color: white;
+    font-size: 32px;
+    padding-bottom: 56px;
+}
+
 .h1-2 {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -78,6 +95,14 @@ h2 {
     color: #000000;
     font-weight: bold;
     text-align: center;
+}
+
+.intro {
+    margin-top: 156px;
+}
+
+#home-content {
+    margin-top: 190px;
 }
 
 .intro h2{
@@ -164,8 +189,19 @@ p {
 }
 
 .login-home {
-    background-color: #FAFD6A; 
+    background-color: black; 
+    color: #FAFD6A;
+    margin-top: 195px;
+    border: 3px solid #FAFD6A;
+}
+
+.login-home:hover {
+    background-color: #FAFD6A;
     color: black;
+}
+
+#signup-home {
+    margin-top: 237px;
 }
 
 /* <fb:login-button 

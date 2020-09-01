@@ -20,15 +20,6 @@ Rails.application.routes.draw do
     resources :posts do 
       resources :locations
     end
-  
-
-  # get '/posts/new', to: 'posts#new', as: 'welcome'
-  # post '/posts', to: 'posts#create'
-  # get '/posts', to: 'posts#index', as: 'posts_index'
-  # get '/posts/:id', to: 'users#show'
-  # get '/posts/:id/edit', to:'posts#edit', as: 'edit_post'
-  # patch '/posts/:id', to: 'posts#update', as: 'posts_update'
-  # post '/posts/delete', to: 'posts#destroy', as: 'posts_delete'
 
   resources :locations
   resources :comments

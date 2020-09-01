@@ -2,27 +2,6 @@
 <html>
 <head></head>
 <body>
-        # <script>
-        #     window.fbAsyncInit = function() {
-        #     FB.init({
-        #     appId      : '300438264535610',
-        #     cookie     : true,
-        #     xfbml      : true,
-        #     version    : '8.0'
-        #     });
-      
-        #     FB.AppEvents.logPageView();   
-      
-        #     };
-
-        #     (function(d, s, id){
-        #     var js, fjs = d.getElementsByTagName(s)[0];
-        #     if (d.getElementById(id)) {return;}
-        #     js = d.createElement(s); js.id = id;
-        #     js.src = "https://connect.facebook.net/en_US/sdk.js";
-        #     fjs.parentNode.insertBefore(js, fjs);
-        #     }(document, 'script', 'facebook-jssdk'));
-        # </script>
 
 <div class="h1-2">
     TRAVELO
@@ -33,20 +12,9 @@
     Sign up for free to start connecting!
 </div>
 
-        # <fb:login-button 
-        #     scope="public_profile,email"
-        #     onlogin="checkLoginState();">
-        # </fb:login-button>
-
 <div>
     <a href='/auth/facebook' class="btn-facebook"> SIGN UP WITH FACEBOOK</a>
 </div>
-
-<div>
-    <a href='/auth/google' class="btn-facebook btn-google"> SIGN UP WITH GOOGLE</a>
-</div>
-
-
 
 <p> or </p>
 <p> Sign up with your email address </p>
@@ -54,8 +22,10 @@
 <%= form_for(@user) do |f| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">
-        <h2>There were some errors:</h2>
-  
+        <h2>
+          <%= pluralize(@user.errors.count, "error") %>
+          There were some errors:
+        </h2> 
         <ul>
           <% @user.errors.full_messages.each do |message| %>
             <li><%= message %></li>

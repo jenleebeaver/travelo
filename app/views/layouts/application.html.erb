@@ -22,6 +22,15 @@
       <% if session[:user_id] %>
         <div class="right-nav">
           <ul>
+            <li> <a href='users/<%= current_user.id %>/edit'> Edit profile </a> 
+            </li>
+          </ul>
+        </div>
+      <%end%>
+          
+       <% if session[:user_id] %>
+        <div class="right-nav">
+          <ul>
             <li><%= link_to 'Logout', logout_path %></li>
           </ul>
         </div>

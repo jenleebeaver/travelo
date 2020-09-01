@@ -1,5 +1,5 @@
-#partial
-<%= form_for(@post) do |f| %>
+
+<%= form_for(@post, :as => :location) do |f| %>
 
     <% if @post.errors.any? %>
       <div id="error_explanation">
@@ -11,12 +11,12 @@
       </div>
     <% end %>
   
-    <div class="field" class="fields_with_errors>
+    <div class="form-group" class="fields_with_errors>
       <%= f.label :content, "Make a post!"%><br>
       <%= f.text_area :content, 
-      placeholder: "Tell us something about your travel experience at your location!", 
+      placeholder: "Tell us something about your travels!", 
       :required => true, 
-      class: "form-control"%>
+      class: "form"%>
     </div>
 
     <div class="field" class="fields_with_errors">
@@ -33,4 +33,5 @@
     <div class="actions">
       <%= f.submit "Post", class: "btn btn-primary" %>
     </div>
+  
   <% end %>

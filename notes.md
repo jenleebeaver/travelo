@@ -10,3 +10,8 @@
       <%= @ret.country.name %>, <%= @ret.city.name %>
       <%= @ret.subdivisions.most_specific.name %>
     </div>
+
+
+
+    TO DO:
+    -check out how to create responsive margins 
