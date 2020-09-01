@@ -35,8 +35,7 @@ class PostsController < ApplicationController
     def update
         set_post!
         @post = Post.update(post_params)
-        if @post.valid?
-            @post.save
+        if @post.save
             redirect_to '/posts/index'
         else 
             render '/posts/new'
@@ -44,9 +43,9 @@ class PostsController < ApplicationController
     end
 
     def destroy 
-        Post.(params[:id].destroy)
+        Post.find(params[:id]).destroy
         flash[:notice] = "Your post has been deleted."
-        redirect_to 'welcome'
+        redirect_to '/posts/edit'
     end
 
     private

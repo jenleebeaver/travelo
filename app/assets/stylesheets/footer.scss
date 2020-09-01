@@ -7,32 +7,36 @@ footer {
         padding-top: 75px;
         padding-bottom: 75px;
 }
-        
-        .about-link {
-            font-family: Montserrat, 'Sans-serif';
-            font-weight: bold;
-            font-size: 16px;
-            color: #41411B;
-            float: right;
-            padding-top: 24px;
-            padding-right: 100px; 
-            text-decoration: none;     
-        }
 
-        .about-link:hover{
-            color: #000000;
-        }
-        
-        .travelo-link {
-            float: left;
-            padding-left: 156px;
-            font-family: Roboto, 'Sans-serif';
-            font-weight: bold;
-            font-size: 32px;
-            color: #41411B;
-            text-decoration: none;
-        }
+.left-footer {
+    float: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    padding-top: 5px;
+    color: #41411B;
+  }
 
-        .travelo-link:hover{
-            color: #000000;
-        }
+.left-footer:hover {
+    color: #000000;
+}
+        
+.about-link {
+    font-family: Montserrat, 'Sans-serif';
+    font-weight: bold;
+    font-size: 16px;
+    color: #41411B;
+    float: right;
+    padding-top: 24px;
+    padding-right: 100px; 
+    text-decoration: none; 
+    padding-left: 120px;    
+    }
+
+.about-link:hover {
+    color: #000000;
+    }
+
+      
+
+       

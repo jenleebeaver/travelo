@@ -45,18 +45,13 @@
  
     </header>
 
-    <div class='content'>
       <%= yield %>
-    </div>
-
+   
     <footer>
-      <div class="left">
-        <p><a class="travelo-link" href='/home'>TRAVELO</a></p>
-      </div>
 
-      <div class="right">
+        <p class="left-footer" ><%= link_to "TRAVELO", home_path %></p>
+
         <p><a class="about-link" href='/about'>About</a></p>
-     </div>
     </footer>
 
   </body>

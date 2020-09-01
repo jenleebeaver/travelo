@@ -29,15 +29,6 @@
           %>
       </p>
     </div>
-
-    <div>
-      <h3>
-        Location:
-      </h3>
-      // can we put this erb tags in the locations table and save them to :location_name?
-      <%= @ret.country.name %>, <%= @ret.city.name %>
-      <%= @ret.subdivisions.most_specific.name %>
-    </div>
     
     <div class="actions">
       <%= f.submit "Post", class: "btn btn-primary" %>
