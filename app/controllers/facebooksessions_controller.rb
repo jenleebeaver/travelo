@@ -10,7 +10,7 @@ class FacebooksessionsController < ApplicationController
       end
       login(@user)
       session[:user_id] = @current_user
-      render 'posts/new'
+      render '/posts/new'
     end
    
     private
