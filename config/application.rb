@@ -16,6 +16,6 @@ module Travelo
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     #forces all access to the app over SSL
-    # config.force_ssl = true
+    config.force_ssl = true
   end
 end

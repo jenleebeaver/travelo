@@ -15,3 +15,5 @@
 
     TO DO:
     -check out how to create responsive margins 
+    -link local news as a feed to location 
+    -create comments 
