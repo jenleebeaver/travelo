@@ -4,7 +4,6 @@ class CreateFacebooksessions < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :uid
       t.string :image
-      #should this be :name?
       t.string :full_name
 
       t.timestamps
