@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_030859) do
     t.string "password_confirmation"
     t.string "password_digest"
     t.string "username"
+    t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
