@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-    skip_before_action :verified_user, only: [:new, :create, :destroy]
+    skip_before_action :verified_user, only: [:new, :create, :createFB, :destroy]
 
     def new
         @user = User.new
@@ -17,10 +17,33 @@ class SessionController < ApplicationController
         end
     end
 
+    def createFB
+        rand_password=('0'..'z').to_a.shuffle.first(8).join
+        rand_username=('0'..'z').to_a.shuffle.first(8).join
+        if @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            u.full_name = auth['info']['name']
+            u.email = auth['info']['email']
+            # u.image = auth['info']['image']
+            u.password = rand_password
+            u.username = rand_username
+            end
+            session[:user_id] = @user.id
+            redirect_to '/posts/new'
+        else 
+            redirect_to 'session/new', notice: "Couldn't find facebook credentials. Please signup."
+        end
+    end
+
     def destroy 
         session.delete("user_id")
         reset_session
         redirect_to home_path
     end
+
+    private 
+
+    def auth
+        request.env['omniauth.auth']
+      end
 
 end
