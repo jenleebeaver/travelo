@@ -3,7 +3,7 @@
 <head></head>
 <body>
        
-<script>
+<%# <script>
     window.fbAsyncInit = function() {
     FB.init({
     appId      : '300438264535610',
@@ -22,7 +22,7 @@
     js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-</script>
+</script> %>
 
 <div class="h1-2">
     TRAVELO
@@ -34,10 +34,10 @@
     <p>To continue, log into travelo.</p>
 </div>
 
-<fb:login-button 
+<%# <fb:login-button 
     scope="public_profile,email"
     onlogin="checkLoginState();">
-</fb:login-button>
+</fb:login-button> %>
 
 <div class="OAuth"
     <div>
@@ -45,9 +45,9 @@
         <a href='/auth/facebook' class="btn-facebook"> CONTINUE WITH FACEBOOK</a>
     </div>
 
-    <div>
+    <%# <div>
         <a href='/auth/google' class="btn-facebook btn-google"> CONTINUE WITH GOOGLE</a>
-    </div>
+    </div> %>
 </div>
 
 <p> or </p>
