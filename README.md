@@ -1,6 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
+<!-- This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
@@ -21,4 +21,12 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
+
+*In Development* *Not secure* 
+
+A quick exercise in building a travel app with user sign-in/login and posts based on location. 
+
+Have plans to build out associated comments and posts running on a user's homepage based on their location. 
+
+Run thinstart to get the server running. 
