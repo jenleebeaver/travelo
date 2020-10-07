@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     before_action :user_is_authenticated
 
     def index
-        @posts = Post.all
+        @posts = current_user.posts
     end
 
     def show
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
     private
 
     def set_post!
-        @post = Post.find_by(:id => params[:id])
+        @post = Post.find_by(:id => params[:user_id])
     end
 
     def post_params

@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    belongs_to :user
+    belongs_to :user, foreign_key: "user_id"
     #add optional: true when first instantiating without location data
     belongs_to :location
     has_many :comments
