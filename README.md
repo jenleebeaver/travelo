@@ -27,6 +27,6 @@ Things you may want to cover:
 
 A quick exercise in building a travel app with user sign-in/login and posts based on location. 
 
-Have plans to build out associated comments and posts running on a user's homepage based on their location. 
+Have plans to build out associated comments and posts running on a user's homepage based on their location. An additional feature would be to add news updates in certain locations.
 
 Run thinstart to get the server running. 
