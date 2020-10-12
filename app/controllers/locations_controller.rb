@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
         if @location.save
             redirect_to 'locations/index'
         else
-            redirect_to 'posts/new', alert: "Your location did not save."
+            redirect_to new_user_post_path(@user), alert: "Your location did not save."
         end
     end
 
@@ -57,7 +57,7 @@ class LocationsController < ApplicationController
         set_location!
         @location.destroy
         flash[:notice] = "Location deleted."
-        redirect_to 'posts/new'
+        redirect_to new_user_post_path
     end
 
     private 

@@ -6,10 +6,11 @@ class PostsController < ApplicationController
         @posts = current_user.posts
     end
 
-    def show
-        set_post!
-        @posts = Post.all
-    end
+    # def show
+    #     # set_post
+    #     @posts = current_user.posts
+    #     # @posts = Post.all
+    # end
 
     def new
         @post = Post.new
@@ -22,23 +23,23 @@ class PostsController < ApplicationController
         #takes current user and instantiates new post (this associates our posts to users)
         @post = current_user.posts.build(post_params)
         if @post.save
-            redirect_to '/posts/index'
+            redirect_to '/posts'
         else
-            render '/posts/new', notice: "Couldn't post. Try again!"
+            render new_user_post_path(@user), notice: "Couldn't post. Try again!"
         end
     end
 
     def edit
-        set_post!
+        set_post
     end
 
     def update
-        set_post!
-        @post = Post.update(post_params)
-        if @post.save
-            redirect_to '/posts/index'
+        # byebug
+        set_post
+        if post = @post.update(post_params)
+            redirect_to '/posts'
         else 
-            render '/posts/new'
+            redirect_to new_user_post_path
         end
     end
 
@@ -50,8 +51,8 @@ class PostsController < ApplicationController
 
     private
 
-    def set_post!
-        @post = Post.find_by(:id => params[:user_id])
+    def set_post
+        @post = Post.find_by(:id => params[:id])
     end
 
     def post_params

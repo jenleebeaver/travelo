@@ -3,7 +3,8 @@ class Post < ApplicationRecord
     #add optional: true when first instantiating without location data
     belongs_to :location
     has_many :comments
-    accepts_nested_attributes_for :location
+    accepts_nested_attributes_for :location, :user
+    #not sure if we have to accepts_nested_attributes_for :user? 
 
     validates :content, length: {minimum: 50, maximum: 1000},  presence: true
     validates :location_name, presence: true
@@ -23,6 +24,15 @@ class Post < ApplicationRecord
     #       if location_attribute["location_name"].present?
     #         location = Location.find_or_create_by(location_attribute)
     #         self.locations << location
+    #       end
+    #     end
+    #   end
+
+    #   def users_attributes=(user_attributes)
+    #     user_attributes.values.each do |user_attribute|
+    #       if user_attribute["id"].present?
+    #         user = User.find_or_create_by(user_attribute)
+    #         self.users << user
     #       end
     #     end
     #   end

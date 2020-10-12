@@ -14,14 +14,11 @@ Rails.application.routes.draw do
   # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   
   resources :users do 
-    resources :posts
-  end
-  #nested resources 
-    resources :posts do 
+    resources :posts do
       resources :locations
     end
+  end
 
-  resources :locations
   resources :comments
  
   #presents a login form
