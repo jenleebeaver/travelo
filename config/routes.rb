@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   
   resources :users do 
-    resources :posts do
-      resources :locations
-    end
+    resources :posts 
+  end
+
+  resources :posts do 
+    resources :locations
   end
 
   resources :locations
