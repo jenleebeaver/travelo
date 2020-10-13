@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :locations
+  resources :posts
   resources :comments
  
   #presents a login form
