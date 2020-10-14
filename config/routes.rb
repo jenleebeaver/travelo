@@ -17,11 +17,10 @@ Rails.application.routes.draw do
     resources :posts 
   end
 
-  resources :posts do 
-    resources :locations
+  resources :locations do 
+    resources :posts
   end
-
-  resources :locations
+  
   resources :posts
   resources :comments
  

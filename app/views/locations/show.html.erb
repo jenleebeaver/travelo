@@ -4,7 +4,7 @@
   <div class="intro">
       <% if session[:user_id] %>
           <div>
-          You are logged in as: <%= current_user.full_name %>
+          You are logged in as: <%= current_user.username %>
           </div>
       <%end%>
 
@@ -12,20 +12,20 @@
       <h2>Here are all of the posts associated with your location.</h2> 
   </div>
 
-  <div><%= link_to 'Create Post', post_path %></div>
+  <div><%= link_to 'Create Post', welcome_path %></div>
 <br />
 
 <table>
   <thead>
     <tr>
-      <th><%= current_user.username %></th>
+      <th><%= User.username %></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @posts.location_name.each do |post| %>
+    <% @locations.each do |location| %>
       <tr>
-        <td><%= post.content %></td>
+        <td><%= location.post.content %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,15 +1,20 @@
 class LocationsController < ApplicationController
 
+    # def index
+    #     @locations = current_user.locations.posts
+    # end
+
     def index
-        if params[:post_id]
-            set_post!
-            if @post.nil?
-                redirect_to posts_path, alert: "Post not found."
+        if params[:location_id]
+            set_location!
+            if @location.nil?
+                redirect_to locations_path, alert: "Location not found."
             else
                 @locations = @post.locations
             end
         else
-        @locations = Location.all.includes(:users, :posts, :comments)
+        @locations = Location.all.includes(:users, :posts)
+        #can include :comments later 
         end
     end
 

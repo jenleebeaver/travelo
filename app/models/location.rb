@@ -1,6 +1,6 @@
 class Location < ApplicationRecord
-    has_many :posts 
-    has_many :users, through: :posts
+    has_many :users
+    has_many :posts, through: :users  
     accepts_nested_attributes_for :users, :posts
 
     def user_attributes=(user_attributes)

@@ -12,20 +12,22 @@
       <h2>Here are all of the posts associated with your location.</h2> 
   </div>
 
-  <div><%= link_to 'Create Post', welcome_path %></div>
+  <div>
+    <a href='/posts'>Create New Post</a>
+</div>
 <br />
 
 <table>
   <thead>
     <tr>
-      <th><%= User.username %></th>
+      <th><%= current_user.username %></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @posts.location.each do |post| %>
+    <% @locations.each do |location| %>
       <tr>
-        <td><%= post.content %></td>
+        <td><%= location.posts.content %></td>
       </tr>
     <% end %>
   </tbody>

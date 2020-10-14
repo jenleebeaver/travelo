@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     def new
         @user = User.new
         if session[:user_id]
-            redirect_to new_user_post_path, notice: "Already logged in!"   
+            redirect_to new_user_post_path(@user), notice: "Already logged in!"   
         end
     end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
             @user.save
             #user login
             session[:user_id] = @user.id
-            redirect_to new_user_post_path
+            redirect_to new_user_post_path(@user)
         else
             flash[:error] = "Not a valid input. Please check your values."
             redirect_to '/signup'
