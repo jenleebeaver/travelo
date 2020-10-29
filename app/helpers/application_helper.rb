@@ -17,6 +17,7 @@ module ApplicationHelper
         if session[:user_id]
             @current_user ||= User.find_by(id: session[:user_id])
             #first time will populate @current_user
+            #||= is considered to be a memoization technique (optimization on current execution frame) so the current_user method calls on the db one time
         end
     end
 

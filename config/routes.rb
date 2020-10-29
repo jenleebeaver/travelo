@@ -12,10 +12,8 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update', as: 'update'
   post '/delete', to: 'users#destroy', as: 'delete'
   # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  
-  resources :users do 
-    resources :posts 
-  end
+
+  #!note to self - don't nest under user 
 
   resources :locations do 
     resources :posts
@@ -33,6 +31,7 @@ Rails.application.routes.draw do
 
  
   # post '/logout', to: 'session#destroy', as: 'logout'
+  #reminder: using delete route is more secure
   get '/logout', to: 'session#destroy', as: 'logout'
   get '/auth/facebook/callback' => 'session#createFB'
 end

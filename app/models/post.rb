@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
     belongs_to :user, foreign_key: "user_id"
     #add optional: true when first instantiating without location data
+    #belongs_to should give us access to post.user and post.location 
     belongs_to :location
     has_many :comments
     accepts_nested_attributes_for :location, :user

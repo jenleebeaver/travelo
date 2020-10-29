@@ -9,12 +9,10 @@
       <%end%>
 
       <h1> Welcome, <%= current_user.full_name %>!<br/></h1>
-      <h2>Here are all of the posts associated with your location.</h2> 
+      <h2>Here are all of the posts in  your location.</h2> 
   </div>
 
-  <div>
-    <a href='/posts'>Create New Post</a>
-</div>
+
 <br />
 
 <table>
@@ -27,11 +25,20 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= location.posts.content %></td>
+        <td><%= location.posts %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<div>
+  <a href='/posts/new'>Create New Post</a>
+</div>
+<div>
+  <a href='/posts'>Go back to all of your posts!</a>
+</div>
 
 </main>
 </div>

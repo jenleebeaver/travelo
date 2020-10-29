@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_063557) do
     t.string "username"
     t.string "uid"
     t.integer "location_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

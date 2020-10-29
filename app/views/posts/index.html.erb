@@ -18,7 +18,11 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.content %></td>
+        <td>
+        <%= post.content %>
+        <br>
+        Location of post: <%post.location.location_name%>
+        </td>
         <td>
           <%= link_to 'Edit', edit_post_path(post) %> |
           <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
@@ -30,7 +34,7 @@
 #insert comment link here 
 
 <div>
-    <a href='/posts'>Create New Post</a>
+    <a href='/posts/new'>Create New Post</a>
 </div>
 
 <div>

@@ -13,9 +13,16 @@ class PostsController < ApplicationController
     # end
 
     def new
-        @post = Post.new
-        ip_location
+        #checking if location is nested and a location_id exists
+        if params[:location_id] && location = Location.find_by_id(params[:location_id])
+            #nested route 
+            @post = location.posts.build
+        else
+            #unnested route 
+            @post = Post.new
+            ip_location
         # location= @post.location.build
+        end
     end
 
     def create
