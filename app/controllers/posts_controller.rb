@@ -4,6 +4,12 @@ class PostsController < ApplicationController
 
     def index
         @posts = current_user.posts
+        if params[:location_id] && location = Location.find_by_id(params[:location_id])
+            #nested route 
+            @posts = location.posts
+        else
+            @posts = Post.all
+        end
     end
 
     # def show
@@ -26,13 +32,14 @@ class PostsController < ApplicationController
     end
 
     def create
+        # @location = Location.find_by_id(params[:location_id])
         Post.create(post_params)
         #takes current user and instantiates new post (this associates our posts to users)
         @post = current_user.posts.build(post_params)
         if @post.save
             redirect_to '/posts'
         else
-            render new_user_post_path(@user), notice: "Couldn't post. Try again!"
+            render new_post_path(@user), notice: "Couldn't post. Try again!"
         end
     end
 

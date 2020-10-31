@@ -33,13 +33,13 @@ h1 {
 }
 
 .main-header {
-    background-color: #41566C;
+    background-color: black;
 }
 
 .h1-main {
-    background-color: #41566C;
+    background-color: black;
     color: white;
-    font-size: 72px;
+    font-size: 104px;
     padding-top: 82px;
     padding-left: 224px;
 }
@@ -97,6 +97,21 @@ h2 {
     color: #000000;
     font-weight: bold;
     text-align: center;
+}
+
+.body {
+    font-family: Montserrat, 'Sans-serif';
+    font-size: 16px;
+    color: white;
+    background-color: #41566C;
+    padding: 32px 120px;
+    /* padding-top: 32px;
+    padding-bottom: 32px; */
+}
+
+.post {
+    padding-bottom: 16px;
+    padding-right: 16px;
 }
 
 .intro {

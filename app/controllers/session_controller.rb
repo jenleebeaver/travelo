@@ -10,7 +10,7 @@ class SessionController < ApplicationController
         @user = User.find_by(email: params[:user][:email])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id]= @user.id
-            redirect_to new_user_post_path(@user)
+            redirect_to new_post_path(@user)
         else
             redirect_to '/login'
             flash[:notice] = "Couldn't find user.  Please signup."

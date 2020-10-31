@@ -8,6 +8,7 @@
       <h2 class="h2-main">Here are all of your posts.</h2> 
   </div>
 
+<div class="body">
 <table>
   <thead>
     <tr>
@@ -18,7 +19,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td>
+        <td class="post">
         <%= post.content %>
         <br>
         Location of post: <%post.location.location_name%>
@@ -31,7 +32,8 @@
     <% end %>
   </tbody>
 </table>
-#insert comment link here 
+</div>
+<%#insert comment link here %>
 
 <div>
     <a href='/posts/new'>Create New Post</a>

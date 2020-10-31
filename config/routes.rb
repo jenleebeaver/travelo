@@ -14,12 +14,12 @@ Rails.application.routes.draw do
   # resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   #!note to self - don't nest under user 
+  resources :posts
 
   resources :locations do 
     resources :posts
   end
   
-  resources :posts
   resources :comments
  
   #presents a login form
