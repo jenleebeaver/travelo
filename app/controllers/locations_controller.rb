@@ -5,17 +5,23 @@ class LocationsController < ApplicationController
     # end
 
     def index
-        if params[:location_id]
-            set_location!
-            if @location.nil?
-                redirect_to locations_path, alert: "Location not found."
-            else
-                @locations = @post.locations
-            end
+         if params[:location_id] && location = Location.find_by_id(params[:location_id])
+            #nested route 
+            @posts = location.posts
         else
-        @locations = Location.all.includes(:users, :posts)
-        #can include :comments later 
+            @posts = Post.all
         end
+        # if params[:location_id]
+        #     set_location!
+        #     if @location.nil?
+        #         redirect_to locations_path, alert: "Location not found."
+        #     else
+        #         @locations = @post.locations
+        #     end
+        # else
+        # @locations = Location.all.includes(:users, :posts)
+        # #can include :comments later 
+        # end
     end
 
     def show
