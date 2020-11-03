@@ -29,9 +29,9 @@ class SessionController < ApplicationController
             u.username = rand_username
             end
             session[:user_id] = @user.id
-            redirect_to new_user_post_path(@user)
+            redirect_to new_post_path(@user)
         else 
-            redirect_to new_user_post_path(@user), notice: "Couldn't find facebook credentials. Please signup."
+            redirect_to new_post_path(@user), notice: "Couldn't find facebook credentials. Please signup."
         end
     end
 
