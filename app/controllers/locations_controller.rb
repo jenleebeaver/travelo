@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
             @posts = location.posts
         else
             @posts = Post.all
+            byebug
         end
         # if params[:location_id]
         #     set_location!

@@ -10,7 +10,7 @@
   </div>
 
   <div class="main-header">
-    <h2 class="h2-main">Here are all of the posts in  your location.</h2> 
+    <h2 class="h2-main">Select a location.</h2> 
   </div>
 
   <div class="body">
@@ -18,6 +18,7 @@
       <thead>
         <tr>
           <th><%= current_user.locations %></th>
+          <%# iterate over location_name 's and create a link to show locations.post based on the nested route  users/id/location/id  %>
         </tr>
       </thead>
 
