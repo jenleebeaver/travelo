@@ -17,6 +17,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* note to self:
+this page is not dynamic  */
+
 body {
     background-color: #FAFD6A;
     color: #B4B4A2;    
@@ -116,10 +119,12 @@ h2 {
 
 .intro {
     margin-top: 156px;
+    margin-left: 120px;
 }
 
 #home-content {
     margin-top: 190px;
+    margin-left: 99px;
 }
 
 .intro h2{
@@ -152,9 +157,10 @@ p {
     text-align: center;
     color: #FAFD64;
     padding: 15px 124px;
-    border-color: #FAFD6A;
+    border-color: #000000;
     border: 3px;
     display: inline-block;
+    margin-left: 179px;
 }
 
 .btn2 {
@@ -168,6 +174,7 @@ p {
     color: #000000;
     background-color: #FAFD6A;
     font-weight: 600;
+    border: 3px solid #000000;
 }
 
 .btn-facebook {
@@ -218,7 +225,7 @@ p {
 }
 
 #signup-home {
-    margin-top: 237px;
+    margin-top: 265px;
 }
 
 /* <fb:login-button 
