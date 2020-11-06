@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     def new
         @user = User.new
         if session[:user_id]
-            redirect_to new_post_path(@user), notice: "Already logged in!"   
+            redirect_to new_post_path, notice: "Already logged in!"   
         end
     end
 

@@ -45,7 +45,7 @@ en:
               blank: "Must include password."
             email:
               blank: "Must include your email address."
-            location:
+            location_name:
               blank: "Must include a location."
 
 

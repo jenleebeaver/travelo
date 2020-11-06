@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
     # end
 
     def index
+        @locations = Location.all.includes(:users, :posts)
+        Location.all
          if params[:location_id] && location = Location.find_by_id(params[:location_id])
             #nested route 
             @posts = location.posts
@@ -25,6 +27,7 @@ class LocationsController < ApplicationController
     end
 
     def show
+        Posts.all.where(:location_id, params[:location_id])
         if params[:post_id]
             set_post!
             @location = @post.locations.find_by(id: params[:id])

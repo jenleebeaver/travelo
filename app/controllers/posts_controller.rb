@@ -4,13 +4,18 @@ class PostsController < ApplicationController
 
     def index
         @posts = current_user.posts
+        if params[:location_id] && location = Location.find_by_id(params[:location_id])
+            @posts = location.posts
+        else
+            @location 
+        end
     end
 
-    # def show
-    #     # set_post
-    #     @posts = current_user.posts
-    #     # @posts = Post.all
-    # end
+    def show
+        set_post
+        # @posts = current_user.posts
+        # @posts = Post.all
+    end
 
     def new
         #checking if location is nested and a location_id exists
@@ -20,15 +25,16 @@ class PostsController < ApplicationController
         else
             #unnested route 
             @post = Post.new
+            #allows us to access location in our nested form(@posts)
+            @location = @post.build_location
             ip_location
-        # location= @post.location.build
         end
     end
 
     def create
         # @location = Location.find_by_id(params[:location_id])
         Post.create(post_params)
-        #takes current user and instantiates new post (this associates our posts to users)
+        #takes current user and instantiates new post (this associates our posts to users). This also mass assigns attributes.
         @post = current_user.posts.build(post_params)
         if @post.save
             redirect_to '/posts'
@@ -65,10 +71,10 @@ class PostsController < ApplicationController
 
     def post_params
         params.require(:post).permit(
-            :location_name,
             :content,
             :user_id,
-            :location_id
+            :location_id,
+            location_attributes: [:location_name]
         )
     end
 

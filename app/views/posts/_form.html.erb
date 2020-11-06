@@ -22,20 +22,19 @@
       class: "form"%>
     </div>
 
-    <div class="field" class="field_with_errors">
-      <p>
-          <%= f.label :location_name, "Where are you located?" %><br/>
-          <%= f.text_field :location_name, 
+    <div class="form-group" class="field" class="field_with_errors">
+        <%= f.fields_for :location do |l| %>
+          <%= l.label :location_name, "Where are you located?" %><br/>
+          <%= l.text_field :location_name, 
             placeholder: "Where are you located?",
             prompt: true, 
             :required => true, 
-            class: "form-control"
-          %>
-      </p>
+            class: "form-control" %>
+        <% end %>
     </div>
     
     <div class="actions">
-      <%= f.submit "Post", class: "btn btn-primary" %>
+      <%= f.submit "Post", class: "btn-new" %>
     </div>
   
   <% end %>
