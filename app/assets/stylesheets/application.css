@@ -160,7 +160,7 @@ p {
     border-color: #000000;
     border: 3px;
     display: inline-block;
-    margin-left: 179px;
+    /* margin-left: 179px; */
 }
 
 .btn-new {
@@ -176,6 +176,7 @@ p {
     border-color: #000000;
     border: 3px;
     display: inline-block;
+    margin-top: 21px;
 }
 
 .btn2 {
@@ -239,6 +240,7 @@ p {
     color: #FAFD6A;
     margin-top: 195px;
     border: 3px solid #FAFD6A;
+    margin-left: 168px;
 }
 
 .login-home:hover {
@@ -248,6 +250,7 @@ p {
 
 #signup-home {
     margin-top: 265px;
+    margin-left: 179px; 
 }
 
 /* <fb:login-button 
@@ -284,4 +287,8 @@ p {
 
 .center {
     text-align: center;
+}
+
+.about-link {
+    margin-top: 21px;
 }

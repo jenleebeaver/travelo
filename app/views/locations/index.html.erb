@@ -10,7 +10,14 @@
   </div>
 
   <div class="main-header">
-    <h2 class="h2-main">Select a location.</h2> 
+    <h2 class="h2-main">Select a location.</h2>
+    <ul>
+      <%@locations.each do |location|%> 
+        <li>
+        <%= link_to location.location_name, location_path(location)%>
+        </li>
+        <% end %>
+    </ul>
   </div>
 
   <div class="body">

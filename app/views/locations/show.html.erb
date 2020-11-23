@@ -12,20 +12,20 @@
       <h2>Here are all of the posts associated with your location.</h2> 
   </div>
 
-  <div><%= link_to 'Create Post', welcome_path %></div>
+  <div><%= link_to 'Create Post', new_post_path %></div>
 <br />
 
 <table>
   <thead>
     <tr>
-      <th><%= User.username %></th>
+      <th><%= current_user.username %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= location.post.content %></td>
+        <td><%= location.post %></td>
       </tr>
     <% end %>
   </tbody>
