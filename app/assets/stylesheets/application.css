@@ -49,7 +49,7 @@ h1 {
 
 .main-header {
     background-color: black;
-    padding: 24px var(--gutter);
+    padding: 90px var(--gutter);
 }
 
 .h1-main {
@@ -116,7 +116,7 @@ h2 {
     font-family: Montserrat, 'Sans-serif';
     font-size: 16px;
     color: white;
-    background-color: #41566C;
+    background-color: #1D262F;
     padding: 32px 120px;
     /* padding-top: 32px;
     padding-bottom: 32px; */
@@ -309,4 +309,8 @@ p {
     padding-bottom: 14px;
     margin-top: 8px;
     background: white;
+}
+
+.links {
+    padding-left: 120px;
 }

@@ -2,7 +2,24 @@
 <header></header>
 <main>
   <div class="main-header">
-      <h1 class="h1-main"> Hey, <%= current_user.full_name %>!<br/></h1>
+      <h1 class="h1-main"> Hey
+      <img id="emoji" src="👋">
+        <script type = "text/javascript">
+            var emoji = document.getElementById("emoji");
+            var currentPos = 0;
+            var emojis = ["👋", "👋🏾", "👋🏿", "👋🏿", "👋🏻", "👋🏼", "👋🏽"]
+
+            function volgendeemoji() {
+                if (++currentPos >= emojis.length)
+                    currentPos = 0;
+
+                emoji.src = emojis[currentPos];
+            }
+
+            setInterval(volgendeemoji, 3000);
+        </script> 
+        ,
+      <%= current_user.full_name %>!<br/></h1>
       <h2 class="h2-main">Here are all of your posts.</h2> 
   </div>
 
@@ -21,9 +38,8 @@
         <%= post.content %>
         <br>
         📍 <%= Location.find_by_id(post.location_id).location_name %>
-        </td>
-        <td>
-          <%= link_to "✏️", edit_post_path(post) %> |
+        <br>
+        <%= link_to "✏️", edit_post_path(post) %> |
           <%= link_to "🗑", post, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
         </td>
       </tr>
@@ -34,11 +50,11 @@
 
 
 <div>
-    <a href='/posts/new'>Create New Post</a>
+    <a class="links" href='/posts/new'>Create New Post</a>
 </div>
 
 <div>
-    <a href='/locations'>Check Out Other Posts In Your Area!</a>
+    <a class="links" href='/locations'>Check Out Other Posts In Your Area!</a>
 </div>
 
 </main>
