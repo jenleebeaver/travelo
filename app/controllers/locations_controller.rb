@@ -1,52 +1,11 @@
 class LocationsController < ApplicationController
 
-    # def index
-    #     @locations = current_user.locations.posts
-    # end
-
     def index
         @locations = Location.all.includes(:users, :posts)
-        Location.all
-         if params[:location_id] && location = Location.find_by_id(params[:location_id])
-            #nested route 
-            @posts = location.posts
-        else
-            @posts = Post.all
-        end
-        # if params[:location_id]
-        #     set_location!
-        #     if @location.nil?
-        #         redirect_to locations_path, alert: "Location not found."
-        #     else
-        #         @locations = @post.locations
-        #     end
-        # else
-        # @locations = Location.all.includes(:users, :posts)
-        # #can include :comments later 
-        # end
     end
 
     def show
-       set_location!
-       set_post!
-       @locations = Location.all.includes(:users, :posts)
-        Location.all
-         if params[:location_id] && location = Location.find_by_id(params[:location_id])
-            #nested route 
-            @posts = location.posts
-        else
-            @posts = Post.all
-        end
-        # Posts.all.where(:location_id, params[:location_id])
-        # if params[:post_id]
-        #     set_post!
-        #     @location = @post.locations.find_by(id: params[:id])
-        #     if @location.nil?
-        #         redirect_to post_locations_path(@post), alert: "Location not found."
-        #     end
-        # else
-        # @location = Location.find_by(id: params[:id])
-        # end
+        puts "Hello World"
     end
 
     def new

@@ -23,9 +23,9 @@
   </thead>
 
   <tbody>
-    <% @locations.each do |location| %>
+    <% @posts.each do |post| %>
       <tr>
-        <td><%= location.post %></td>
+        <td><%= post.location_id.content %></td>
       </tr>
     <% end %>
   </tbody>
