@@ -19,10 +19,22 @@
 
 /* note to self:
 this page is not dynamic  */
+:root {
+    --gutter: 120px;
+}
 
 body {
     background-color: #FAFD6A;
     color: #B4B4A2;    
+}
+
+td a {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 h1 {
@@ -37,20 +49,19 @@ h1 {
 
 .main-header {
     background-color: black;
+    padding: 24px var(--gutter);
 }
 
 .h1-main {
     background-color: black;
     color: white;
     font-size: 104px;
-    padding-top: 82px;
-    padding-left: 224px;
 }
 
 .h2-main {
     color: white;
     font-size: 32px;
-    padding-left: 224px;
+    margin-bottom: 0;
 }
 
 .h1-2 {

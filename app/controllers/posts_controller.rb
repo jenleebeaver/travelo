@@ -4,11 +4,6 @@ class PostsController < ApplicationController
 
     def index
         @posts = current_user.posts
-        if params[:location_id] && location = Location.find_by_id(params[:location_id])
-            @posts = location.posts
-        else
-            @location 
-        end
     end
 
     def show

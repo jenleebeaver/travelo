@@ -7,8 +7,7 @@ class LocationsController < ApplicationController
     def show
         set_location!
         @locations = Location.all.includes(:users, :posts)
-        set_post!
-        @posts = current_user.posts
+        @posts = Post.all.where(location_id: params[:id])
     end
 
     def new
