@@ -5,7 +5,10 @@ class LocationsController < ApplicationController
     end
 
     def show
-        puts "Hello World"
+        set_location!
+        @locations = Location.all.includes(:users, :posts)
+        set_post!
+        @posts = current_user.posts
     end
 
     def new

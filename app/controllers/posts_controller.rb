@@ -13,8 +13,8 @@ class PostsController < ApplicationController
 
     def show
         set_post
-        # @posts = current_user.posts
-        # @posts = Post.all
+        @posts = current_user.posts
+        @posts = Post.all
     end
 
     def new

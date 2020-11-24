@@ -22,10 +22,14 @@
     </tr>
   </thead>
 
+<%# this code is showing all of the posts  %>
   <tbody>
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.location_id.content %></td>
+         <td>
+              <%= link_to 'Comment' %>
+            </td>
       </tr>
     <% end %>
   </tbody>
