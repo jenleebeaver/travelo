@@ -29,4 +29,4 @@ A quick exercise in building a travel app with user sign-in/login and posts base
 
 Have plans to build out associated comments and posts running on a user's homepage based on their location. An additional feature would be to add news updates in certain location, weather in current_user location and all locations, and use the location gem to pick up the users IP address. 
 
-Run thinstart --ssl to get the server running. 
+Run thin start --ssl to get the server running. 
