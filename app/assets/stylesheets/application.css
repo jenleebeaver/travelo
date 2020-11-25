@@ -116,7 +116,7 @@ h2 {
     font-family: Montserrat, 'Sans-serif';
     font-size: 16px;
     color: white;
-    background-color: #1D262F;
+    background-color: black;
     padding: 32px 120px;
     /* padding-top: 32px;
     padding-bottom: 32px; */
@@ -125,6 +125,23 @@ h2 {
 .post {
     padding-bottom: 16px;
     padding-right: 16px;
+}
+
+.content {
+    background-color: #E5E5E5;
+    color: black;
+    border-radius: 30px;
+    padding: 16px 48px;
+}
+
+.user {
+    color: #ABF567;
+    padding-left: 120px;
+}
+
+.comment {
+    padding-left: 120px;
+    padding-bottom: 48px;
 }
 
 .intro {
@@ -176,17 +193,38 @@ p {
 .btn-new {
     background: #000000;
     border-radius: 32px;
-    font-size: 24px;
-    font-weight: 200;
+    font-size: 18px;
+    font-weight: 600;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     text-align: center;
-    color: #FAFD64;
-    padding: 15px 124px;
+    color: white;
+    padding: 16px 104px;
     border-color: #000000;
     border: 3px;
     display: inline-block;
-    margin-top: 21px;
+    margin-top: 32px;
+}
+
+.btn-post {
+    background-color: black;
+    background: #ABF567;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    display: inline-block;
+    padding: 16px 40px;
+    margin-left: 551px;
+    margin-top: 40px;
+}
+
+.btn-post:hover {
+    background-color: #FAFD6A;
+    font-size: 18px;
 }
 
 .btn2 {
@@ -308,9 +346,19 @@ p {
     color: white !important;
     padding-bottom: 14px;
     margin-top: 8px;
-    background: white;
+    background: black;
 }
 
 .links {
     padding-left: 120px;
+}
+
+#posts {
+    margin-left: 480px;
+    margin-top: 40px;
+}
+
+.locations-btn {
+    color: white !important;
+    background-color:  #E5E5E5;
 }

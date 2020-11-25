@@ -1,39 +1,54 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <div class="container">
 <header></header>
 <main>
-  <div class="intro">
-      <% if session[:user_id] %>
-          <div>
-          You are logged in as: <%= current_user.username %>
-          </div>
-      <%end%>
+  <div class="main-header">
+      <h1 class="h1-main"> 
+      <div id="greeting"> Welcome </div>, 
+      <script type = "text/javascript" >
+            var greeting = document.getElementById("greeting");
+            var currentPos = 0;
+            var greetings = ["Ahoy", "Salam", "你好", "Hello", "Здравствуйте", "Hey", "Cheers", "Hola", "여보세요" ]
 
-      <h1> Welcome, <%= current_user.full_name %>!<br/></h1>
-      <h2>Here are all of the posts associated with your location.</h2> 
+            function volgendegreeting() {
+                if (++currentPos >= greetings.length)
+                    currentPos = 0;
+
+                greeting.src = greetings[currentPos];
+            }
+
+            setInterval(volgendegreeting, 3000);
+        </script> 
+      <%= current_user.full_name %>!<br/></h1>
+      <h2 class="h2-main">Here are all of the posts about <%= @location.location_name %></h2> 
   </div>
 
-  <div><%= link_to 'Create Post', new_post_path %></div>
-<br />
-
+<div class="body">
 <table>
-  <thead>
-    <tr>
-      <th><%= current_user.username %></th>
-    </tr>
-  </thead>
-
 <%# this code is showing all of the posts  %>
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.content %></td>
-         <td>
-              <%= link_to 'Comment' %>
-            </td>
+          <td class="post">
+            <div class="user">
+              <%=post.user.username %>
+            </div>
+             <div class="content">
+              <%= post.content %>
+            </div>
+            <div class="comment">
+            <%= link_to "Comment", new_comment_path(post) %>
+            </div>
+          </td>  
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div class="btn-post"><%= link_to 'CREATE POST', new_post_path %></div>
+
+</div>
+
 
 </main>
 </div>
