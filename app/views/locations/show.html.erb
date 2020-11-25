@@ -1,25 +1,23 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <div class="container">
 <header></header>
 <main>
   <div class="main-header">
       <h1 class="h1-main"> 
-      <div id="greeting"> Welcome </div>, 
+      <div id="greeting"> Hello </div> 
       <script type = "text/javascript" >
             var greeting = document.getElementById("greeting");
             var currentPos = 0;
             var greetings = ["Ahoy", "Salam", "你好", "Hello", "Здравствуйте", "Hey", "Cheers", "Hola", "여보세요" ]
 
-            function volgendegreeting() {
-                if (++currentPos >= greetings.length)
-                    currentPos = 0;
-
-                greeting.src = greetings[currentPos];
+            function loopGreeting() {
+              var currentGreeting = greetings[currentPos%greetings.length]
+              greeting.innerHTML = currentGreeting
+              currentPos++  
             }
 
-            setInterval(volgendegreeting, 3000);
+            setInterval(loopGreeting, 1500);
         </script> 
-      <%= current_user.full_name %>!<br/></h1>
+      <%= current_user.full_name %><br/></h1>
       <h2 class="h2-main">Here are all of the posts about <%= @location.location_name %></h2> 
   </div>
 

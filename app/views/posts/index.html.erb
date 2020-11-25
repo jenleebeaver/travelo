@@ -3,22 +3,21 @@
 <header></header>
 <main>
   <div class="main-header">
-      <h1 class="h1-main"> Hey, <br> <div id="emoji"> 👋 </div>
+      <h1 class="h1-main"> Hello <br> <div id="emoji"> 👋 </div>
         <script type = "text/javascript" >
             var emoji = document.getElementById("emoji");
             var currentPos = 0;
             var emojis = ["👋", "👋🏾", "👋🏿", "👋🏿", "👋🏻", "👋🏼", "👋🏽"]
 
-            function volgendeemoji() {
-                if (++currentPos >= emojis.length)
-                    currentPos = 0;
-
-                emoji.src = emojis[currentPos];
+            function loopEmojis(){
+              var currentEmoji = emojis[currentPos%emojis.length]
+              emoji.innerHTML = currentEmoji
+              currentPos++
             }
 
-            setInterval(volgendeemoji, 3000);
-        </script> 
-      <%= current_user.full_name %>!<br/></h1>
+            setInterval(loopEmojis, 1500);
+        </script>
+      <%= current_user.full_name %><br/></h1>
       <h2 class="h2-main">Here are all of your posts.</h2> 
   </div>
 

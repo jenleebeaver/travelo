@@ -137,11 +137,16 @@ h2 {
 .user {
     color: #ABF567;
     padding-left: 120px;
+    font-weight: 600;
 }
 
 .comment {
     padding-left: 120px;
     padding-bottom: 48px;
+}
+
+.comment:hover {
+    font-weight: 600px;
 }
 
 .intro {
@@ -361,4 +366,10 @@ p {
 .locations-btn {
     color: white !important;
     background-color:  #E5E5E5;
+}
+
+#post_content {
+    height: 135px;
+    width: 576px;
+    border-radius: 30px;
 }

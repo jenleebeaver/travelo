@@ -15,7 +15,11 @@
     <header class='clearfix'>
       <div class="left-nav">
         <ul>
-          <li><%= link_to "TRAVELO", home_path %></li>
+          <% if session[:user_id] %>
+            <a href="users/profile">TRAVELO</a>
+          <% else %>
+            <li><%= link_to "TRAVELO", home_path %></li>
+          <%end%>
         </ul>
       </div>
           
