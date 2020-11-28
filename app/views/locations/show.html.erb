@@ -3,11 +3,11 @@
 <main>
   <div class="main-header">
       <h1 class="h1-main"> 
-      <div id="greeting"> Hello </div> 
+      <div id="greeting"> Welcome to </div> 
       <script type = "text/javascript" >
             var greeting = document.getElementById("greeting");
             var currentPos = 0;
-            var greetings = ["Ahoy", "Salam", "你好", "Hello", "Здравствуйте", "Hey", "Cheers", "Hola", "여보세요" ]
+            var greetings = ["Welcome to", "आपका स्वागत है", "欢迎来到", "오신 것을 환영합니다", "مرحبا بكم في", "Bienvenidos a", "добро пожаловать в", "ยินดีต้อนรับสู่", "Welkom by", "Bienvenue à"]
 
             function loopGreeting() {
               var currentGreeting = greetings[currentPos%greetings.length]
@@ -17,8 +17,8 @@
 
             setInterval(loopGreeting, 1500);
         </script> 
-      <%= current_user.full_name %><br/></h1>
-      <h2 class="h2-main">Here are all of the posts about <%= @location.location_name %></h2> 
+      <%= @location.location_name %><br/></h1>
+      <h2 class="h2-main">Check out these posts about <%= @location.location_name %></h2> 
   </div>
 
 <div class="body">

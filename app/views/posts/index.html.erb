@@ -3,7 +3,22 @@
 <header></header>
 <main>
   <div class="main-header">
-      <h1 class="h1-main"> Hello <br> <div id="emoji"> 👋 </div>
+      <h1 class="h1-main">  
+      <div id="greeting"> Hello </div> <%= current_user.full_name %>
+      <script type = "text/javascript" >
+            var greeting = document.getElementById("greeting");
+            var currentPos = 0;
+            var greetings = ["Hello", "Hola", "你好", "여보세요", "مرحبا", "Здравствуйте", "สวัสดี", "Hallo", "Bonjour"]
+
+            function loopGreeting() {
+              var currentGreeting = greetings[currentPos%greetings.length]
+              greeting.innerHTML = currentGreeting
+              currentPos++  
+            }
+
+            setInterval(loopGreeting, 1500);
+        </script> 
+      <div id="emoji"> 👋 </div>
         <script type = "text/javascript" >
             var emoji = document.getElementById("emoji");
             var currentPos = 0;
@@ -12,12 +27,12 @@
             function loopEmojis(){
               var currentEmoji = emojis[currentPos%emojis.length]
               emoji.innerHTML = currentEmoji
-              currentPos++
+              currentPos++  
             }
 
             setInterval(loopEmojis, 1500);
         </script>
-      <%= current_user.full_name %><br/></h1>
+      </h1>
       <h2 class="h2-main">Here are all of your posts.</h2> 
   </div>
 
