@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
 
     def index
-        @locations = Location.all.includes(:users, :posts)
+        @locations = Location.all.includes(:users, :posts).order(:location_name)
     end
 
     def show

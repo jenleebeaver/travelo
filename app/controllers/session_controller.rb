@@ -12,7 +12,7 @@ class SessionController < ApplicationController
             session[:user_id]= @user.id
             redirect_to new_post_path(@user)
         else
-            redirect_to '/login'
+            redirect_to '/signup'
             flash[:notice] = "Couldn't find user.  Please signup."
             #render gives us the div field with errors and an extra layer of security vs redirect. Render can't be used in form_for.'
         end
@@ -31,7 +31,7 @@ class SessionController < ApplicationController
             session[:user_id] = @user.id
             redirect_to new_post_path(@user)
         else 
-            redirect_to new_post_path(@user), notice: "Couldn't find facebook credentials. Please signup."
+            redirect_to signup_path(@user), notice: "Couldn't find facebook credentials. Please signup."
         end
     end
 
@@ -42,7 +42,7 @@ class SessionController < ApplicationController
     end
 
     private 
-
+# access our private keys in the .env file 
     def auth
         request.env['omniauth.auth']
       end
