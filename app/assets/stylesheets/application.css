@@ -180,6 +180,10 @@ p {
     color: #41411B
 }
 
+#create {
+    font-weight: normal;
+}
+
 .btn {
     background: #000000;
     border-radius: 32px;
