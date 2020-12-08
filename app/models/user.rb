@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :posts
     has_many :locations, through: :posts
-    has_many :comments, through: :posts
+    has_many :comments
 
     validates :full_name, length: {minimum: 2, message: "Name must be longer than two characters."}, presence: true
     validates :username, length: {minimum: 3}, uniqueness: true, presence: true

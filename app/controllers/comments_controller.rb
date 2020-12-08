@@ -1,7 +1,8 @@
-class CommentsControlller < ApplicationsController
+class CommentsControlller < ApplicationController
     before_action :user_is_authenticated?
     
     def new
+        @comments = Comments.new
     end
 
     def create
