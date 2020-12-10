@@ -3,6 +3,13 @@
 <main>
   <div class="main-header">
     <h2 class="h2-main">Select a location... <%= current_user.username %>.</h2>
+
+    <%= form_tag("/locations", method: "get") do %>
+      <%= label_tag(:location_name, "Search for location:") %>
+      <%= search_field_tag(:location_name) %>
+      <%= submit_tag("Search") %>
+    <% end %> 
+
     <ul class="locations">
       <%@locations.each do |location|%> 
         <ul>

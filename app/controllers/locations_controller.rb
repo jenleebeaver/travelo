@@ -1,7 +1,11 @@
 class LocationsController < ApplicationController
 
     def index
-        @locations = Location.all.includes(:users, :posts).order(:location_name)
+        if params[:location_name]
+            @locations = Location.search_by_location_name(params[:location_name]) 
+        else
+            @locations = Location.all.includes(:users, :posts).order(:location_name)
+        end 
     end
 
     def show

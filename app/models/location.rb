@@ -10,4 +10,8 @@ class Location < ApplicationRecord
     def post_attributes=(post_attributes)
       self.post = Post.find_or_create_by(post_id: post_attributes[:user_id]) unless post_attributes[:user_id].blank?
     end
+
+    #? SQL sanitizes data 
+    scope :search_by_location_name, -> (search_location_name){where("location_name == ?", search_location_name)}
+    
 end
