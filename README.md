@@ -31,4 +31,4 @@ Have plans to build out associated comments. An additional feature would be to a
 
 Run thin start --ssl to get the server running. 
 
-https://www.youtube.com/watch?v=rs0huc6m1vM
+[Watch video walkthrough here](https://www.youtube.com/watch?v=rs0huc6m1vM)
